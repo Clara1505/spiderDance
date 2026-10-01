@@ -1,0 +1,282 @@
+% Bibliographie du projet SpiderDance (PROJEX, EPITA)
+% Clé = ID de la source, identique dans CLAUDE.md, docs/ (Markdown) et rapport/rapport.tex.
+% Règle : seuls les champs connus sont remplis. Un champ inconnu est omis ou signalé en note « À VÉRIFIER ».
+% Convention : « note » précise aussi ce qui a été lu (résumé seul ou texte intégral).
+% Dernière mise à jour : 2026-09-29
+
+% =====================================================================
+% S01–S08 : documents du projet (cours, énoncé, travaux antérieurs)
+% =====================================================================
+
+@misc{S01,
+  author       = {Avanthey, Loïca and Beaudoin, Laurent},
+  title        = {Exploring Project -- Welcome!},
+  howpublished = {Support de cours PROJEX, SEAL, EPITA},
+  note         = {Fichier : projex\_introduction.pdf. Lu en entier},
+  urldate      = {2026-09-23}
+}
+
+@misc{S02,
+  author       = {{Encadrants PROJEX}},
+  title        = {[SpiderDance] Choreographing a Robot Swarm -- énoncé du sujet},
+  howpublished = {EPITA},
+  note         = {À VÉRIFIER : document d'origine},
+  urldate      = {2026-09-23}
+}
+
+@techreport{S03,
+  author      = {Crépin, Célian and Dupont, Maxence},
+  title       = {Rapport de projet de recherche -- Évolution d'un robot araignée quadrupède},
+  institution = {EPITA},
+  type        = {Rapport étudiant},
+  note        = {Année scolaire 2025--2026. Fichier : Rapport\_sealk\_spider.pdf. Lu en entier. Utilisé comme guide uniquement},
+  urldate     = {2026-09-29}
+}
+
+@manual{S04,
+  author  = {Avanthey, Loïca and Beaudoin, Laurent},
+  title   = {Robot Araignée SEALK -- Prise en main -- SEAL's Skill book},
+  note    = {Fichier : skill\_book\_sealk\_prise\_en\_main.pdf. Lu en entier. Référence officielle},
+  urldate = {2026-09-29}
+}
+
+@manual{S05,
+  author  = {Avanthey, Loïca and Beaudoin, Laurent},
+  title   = {Robot Araignée SEALK -- Modélisation -- SEAL's Skill book},
+  note    = {Fichier : skill\_book\_Sealk\_Modelisation.pdf. Lu en entier. Référence officielle},
+  urldate = {2026-09-29}
+}
+
+@software{S06,
+  title   = {spider\_SEALK (v2) -- firmware Arduino avec modes Wi-Fi et radio},
+  note    = {Archive : spider\_SEALK\_wifi.zip, dossier spider\_SEALK\_v2/spider\_SEALK/. Auteurs À VÉRIFIER. Lu en entier. Utilisé comme guide uniquement},
+  urldate = {2026-09-29}
+}
+
+@software{S07,
+  title   = {spider-control -- superviseur multi-robots (Flask, React/Vite)},
+  note    = {Archive : spider-control.zip. Auteurs À VÉRIFIER. Lu en entier (backend, configuration, extrait du frontend). Utilisé comme guide uniquement},
+  urldate = {2026-09-29}
+}
+
+@software{S08,
+  title   = {spider\_cli.py -- client en ligne de commande},
+  note    = {Auteurs À VÉRIFIER. Fichier absent des archives reçues : contenu NON vérifié. Utilisé comme guide uniquement},
+  urldate = {2026-09-29}
+}
+
+% =====================================================================
+% S09 et suivantes : sources externes (état de l'art)
+% Sauf mention « texte intégral », seuls le résumé, l'introduction ou la page de documentation ont été lus.
+% =====================================================================
+
+@article{S09,
+  author  = {Brambilla, Manuele and Ferrante, Eliseo and Birattari, Mauro and Dorigo, Marco},
+  title   = {Swarm robotics: a review from the swarm engineering perspective},
+  journal = {Swarm Intelligence},
+  volume  = {7},
+  number  = {1},
+  pages   = {1--41},
+  year    = {2013},
+  doi     = {10.1007/s11721-012-0075-2},
+  url     = {https://link.springer.com/article/10.1007/s11721-012-0075-2},
+  note    = {Résumé seul lu},
+  urldate = {2026-09-23}
+}
+
+@article{S10,
+  author  = {Dorigo, Marco and Theraulaz, Guy and Trianni, Vito},
+  title   = {Swarm Robotics: Past, Present, and Future},
+  journal = {Proceedings of the IEEE},
+  volume  = {109},
+  number  = {7},
+  pages   = {1152--1165},
+  year    = {2021},
+  doi     = {10.1109/JPROC.2021.3072740},
+  url     = {https://iridia.ulb.ac.be/~mdorigo/Published_papers/All_Dorigo_papers/DorTheTri2021pieee.pdf},
+  note    = {Article de type « point de vue ». Introduction seule lue},
+  urldate = {2026-09-23}
+}
+
+@article{S11,
+  author  = {Schranz, Melanie and Umlauft, Martina and Sende, Micha and Elmenreich, Wilfried},
+  title   = {Swarm Robotic Behaviors and Current Applications},
+  journal = {Frontiers in Robotics and AI},
+  volume  = {7},
+  pages   = {36},
+  year    = {2020},
+  doi     = {10.3389/frobt.2020.00036},
+  url     = {https://www.frontiersin.org/journals/robotics-and-ai/articles/10.3389/frobt.2020.00036/full},
+  note    = {Accès libre. Résumé seul lu},
+  urldate = {2026-09-23}
+}
+
+@misc{S12,
+  title        = {SwarmGPT: Combining Large Language Models with Safe Motion Planning for Drone Swarm Choreography},
+  howpublished = {Prépublication arXiv:2412.08428},
+  url          = {https://arxiv.org/html/2412.08428},
+  note         = {Auteurs À VÉRIFIER. Résumé et section II.A lus},
+  urldate      = {2026-09-23}
+}
+
+@misc{S13,
+  title        = {Swarm-GPT: Combining Large Language Models with Safe Motion Planning for Robot Choreography Design},
+  howpublished = {Prépublication arXiv:2312.01059},
+  url          = {https://arxiv.org/pdf/2312.01059},
+  note         = {Auteurs À VÉRIFIER. Introduction et bibliographie lues},
+  urldate      = {2026-09-28}
+}
+
+@misc{S14,
+  author       = {Christiansen, Henning},
+  title        = {A simple script language for choreography of multiple, synchronizing non-anthropomorphic robots},
+  howpublished = {Prépublication arXiv:1712.08448 (document de travail, Roskilde University)},
+  year         = {2018},
+  url          = {https://arxiv.org/pdf/1712.08448},
+  note         = {Résumé seul lu},
+  urldate      = {2026-09-23}
+}
+
+@inproceedings{S15,
+  author    = {Du, X. and Luis, C. E. and Vukosavljev, M. and Schoellig, A. P.},
+  title     = {Fast and in sync: Periodic swarm patterns for quadrotors},
+  booktitle = {Proceedings of the IEEE International Conference on Robotics and Automation (ICRA)},
+  pages     = {9143--9149},
+  year      = {2019},
+  url       = {https://www.researchgate.net/publication/328161150_Fast_and_In_Sync_Periodic_Swarm_Patterns_for_Quadrotors},
+  note      = {Référence confirmée par la bibliographie de S13 (initiales seulement). Résumé seul lu},
+  urldate   = {2026-09-28}
+}
+
+@article{S16,
+  author  = {Sivrikaya, Fikret and Yener, Bülent},
+  title   = {Time synchronization in sensor networks: a survey},
+  journal = {IEEE Network},
+  volume  = {18},
+  number  = {4},
+  pages   = {45--50},
+  year    = {2004},
+  doi     = {10.1109/MNET.2004.1316761},
+  url     = {https://www.cs.rpi.edu/~yener/PAPERS/WINET/timesync04.pdf},
+  note    = {Résumé et introduction lus},
+  urldate = {2026-09-23}
+}
+
+@article{S17,
+  author  = {Augugliaro, Federico and Schoellig, Angela P. and D'Andrea, Raffaello},
+  title   = {Dance of the Flying Machines: Methods for Designing and Executing an Aerial Dance Choreography},
+  journal = {IEEE Robotics \& Automation Magazine},
+  volume  = {20},
+  number  = {4},
+  pages   = {96--104},
+  year    = {2013},
+  doi     = {10.1109/MRA.2013.2275693},
+  url     = {https://www.dynsyslab.org/wp-content/papercite-data/pdf/augugliaro-ram13.pdf},
+  note    = {Extraits du texte intégral lus (conception, faisabilité, synchronisation, collisions). Numéros de section À PRÉCISER},
+  urldate = {2026-09-29}
+}
+
+@article{S18,
+  author  = {Cappo, Ellen A. and Desai, Arjav and Collins, Matthew and Michael, Nathan},
+  title   = {Online planning for human--multi-robot interactive theatrical performance},
+  journal = {Autonomous Robots},
+  year    = {2018},
+  url     = {https://dl.acm.org/doi/abs/10.5555/3288899.3288964},
+  note    = {Volume et pages À VÉRIFIER. Résumé seul lu},
+  urldate = {2026-09-28}
+}
+
+@article{S19,
+  author  = {Yan, Zhi and Jouandeau, Nicolas and Cherif, Arab Ali},
+  title   = {A Survey and Analysis of Multi-Robot Coordination},
+  journal = {International Journal of Advanced Robotic Systems},
+  volume  = {10},
+  number  = {12},
+  pages   = {399},
+  year    = {2013},
+  doi     = {10.5772/57313},
+  url     = {https://journals.sagepub.com/doi/10.5772/57313},
+  note    = {Accès libre. Résumé seul lu},
+  urldate = {2026-09-28}
+}
+
+@article{S20,
+  author  = {Mirollo, R. E. and Strogatz, S. H.},
+  title   = {Synchronization of Pulse-Coupled Biological Oscillators},
+  journal = {SIAM Journal on Applied Mathematics},
+  volume  = {50},
+  number  = {6},
+  pages   = {1645--1662},
+  year    = {1990},
+  url     = {https://www.clear.rice.edu/comp551/papers/MirolloStrogatz-TemporalSynchronization-SIAM1990.pdf},
+  note    = {Résumé et introduction lus},
+  urldate = {2026-09-28}
+}
+
+@misc{S21,
+  title        = {Bimodal Synchronization Performance: Why Noise and Sparse Connectivity Can Improve Collective Timing},
+  howpublished = {Prépublication arXiv:2605.17206},
+  url          = {https://arxiv.org/html/2605.17206},
+  note         = {Auteurs À VÉRIFIER. Utilisé comme source secondaire sur Tyrrell et al. (2006), dont l'original n'a pas été lu},
+  urldate      = {2026-09-28}
+}
+
+@techreport{S22,
+  author      = {Mills, D. and Martin, J. and Burbank, J. and Kasch, W.},
+  title       = {Network Time Protocol Version 4: Protocol and Algorithms Specification},
+  institution = {Internet Engineering Task Force (IETF)},
+  type        = {RFC},
+  number      = {5905},
+  year        = {2010},
+  url         = {https://www.rfc-editor.org/rfc/rfc5905.html},
+  note        = {J. Martin est indiqué comme éditeur dans l'en-tête de la RFC. Résumé seul lu},
+  urldate     = {2026-09-28}
+}
+
+@manual{S23,
+  author  = {{Espressif Systems}},
+  title   = {ESP-NOW -- ESP-IDF Programming Guide (ESP32)},
+  url     = {https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/network/esp_now.html},
+  note    = {Documentation officielle. Version de l'ESP-IDF À PRÉCISER si utilisée},
+  urldate = {2026-09-28}
+}
+
+@manual{S24,
+  author  = {{Projet micro-ROS}},
+  title   = {micro-ROS Agent (dépôt) et documentation Micro XRCE-DDS},
+  url     = {https://github.com/micro-ROS/micro-ROS-Agent},
+  note    = {Voir aussi https://github.com/micro-ROS/micro-ros.github.io/blob/master/\_docs/concepts/middleware/Micro\_XRCE-DDS/index.md. Pages de présentation lues},
+  urldate = {2026-09-28}
+}
+
+@article{S25,
+  author  = {Ijspeert, Auke Jan},
+  title   = {Central pattern generators for locomotion control in animals and robots: A review},
+  journal = {Neural Networks},
+  volume  = {21},
+  number  = {4},
+  pages   = {642--653},
+  year    = {2008},
+  doi     = {10.1016/j.neunet.2008.03.014},
+  note    = {Résumé seul lu},
+  urldate = {2026-09-28}
+}
+
+@manual{S26,
+  author  = {{OpenCV}},
+  title   = {Detection of ArUco Markers (tutoriel)},
+  url     = {https://docs.opencv.org/5.0/tutorials/objdetect/aruco_detection/aruco_detection.html},
+  note    = {Documentation officielle. Introduction du tutoriel lue},
+  urldate = {2026-09-28}
+}
+
+@inproceedings{S27,
+  author    = {Preiss and Hönig and Sukhatme and Ayanian},
+  title     = {Crazyswarm: A large nano-quadcopter swarm},
+  booktitle = {Proceedings of the IEEE International Conference on Robotics and Automation (ICRA)},
+  year      = {2017},
+  doi       = {10.1109/ICRA.2017.7989376},
+  url       = {https://whoenig.github.io/publications/2017_ICRA_Preiss_Hoenig.pdf},
+  note      = {Prénoms et pages À VÉRIFIER. Extraits du texte intégral lus (résumé, §IV, §VIII, §XI-A)},
+  urldate   = {2026-09-29}
+}
