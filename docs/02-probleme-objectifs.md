@@ -1,7 +1,7 @@
 # 02 — Problématique et objectifs
 
-> **Statut** : brouillon v0.2 — à valider par l'équipe, **seuils chiffrés à fixer avec les tuteurs**
-> **Dernière mise à jour** : 2026-09-29
+> **Statut** : brouillon v0.3 — à valider par l'équipe, **seuils chiffrés à fixer avec les tuteurs**
+> **Dernière mise à jour** : 2026-11-17
 > **Légende** : `[FAIT]` vérifié et sourcé · `[HYPOTHÈSE]` raisonnement non vérifié · `[À VÉRIFIER]` plausible mais non confirmé · `[À DÉFINIR]` valeur à fixer par l'équipe
 > **Citations** : `[@ID, localisation]`, clés définies dans `docs/sources.bib`
 
@@ -48,19 +48,29 @@ fixer une valeur sans mesure sur nos robots reviendrait à l'inventer. La métho
 mesurer d'abord un état de référence, puis à fixer les seuils avec les tuteurs.
 
 ### 3.1 Objectif général
-Réaliser un démonstrateur dans lequel **N araignées SEALK** `[À DÉFINIR : N ≥ 2]` exécutent une
+Réaliser un démonstrateur dans lequel **N araignées SEALK** (N ≥ 2) exécutent une
 chorégraphie commune, coordonnée par une API de communication, avec une synchronisation mesurée et
 documentée.
 
-### 3.2 Objectifs spécifiques
+## 3.2 Objectifs spécifiques
 | ID | Objectif | Critère de réussite | Moyen de preuve |
 |---|---|---|---|
-| O1 | **Communication** : chaque robot reçoit les messages de coordination. | Taux de messages reçus ≥ `[À DÉFINIR]` % sur une séance de `[À DÉFINIR]` minutes. | Journaux horodatés, fiche EXP |
-| O2 | **Départ commun / temps commun** : les robots partagent un signal de départ ou une horloge commune. | Écart entre robots ≤ `[À DÉFINIR]` ms, mesuré au début et à la fin d'une chorégraphie. | Journaux horodatés, fiche EXP |
-| O3 | **Synchronisation des mouvements** : un même mouvement démarre au même instant sur tous les robots. | Écart de démarrage ≤ `[À DÉFINIR]` ms, et **meilleur** que l'état de référence mesuré en EXP-002. | Mesure vidéo et/ou journaux, fiche EXP |
+| O1 | **Communication** : chaque ordre envoyé par l'ordinateur est reçu **et exécuté** par le robot visé. | 100 % des ordres exécutés sur `[À DÉFINIR]` chorégraphies complètes consécutives. Taux = ordres exécutés / ordres envoyés. | Vidéo et/ou journaux, fiche EXP |
+| O2 | **Départ commun / temps commun** : les robots partagent un signal de départ ou une horloge commune. | Écart entre robots ≤ `[À DÉFINIR]` ms, mesuré au début **et** à la fin d'une chorégraphie (pour voir la dérive). | Analyse vidéo image par image ; journaux pour compléter, fiche EXP |
+| O3 | **Synchronisation des mouvements** : un même mouvement démarre au même instant sur tous les robots. | Écart de démarrage ≤ `[À DÉFINIR]` ms, **meilleur** que l'état de référence mesuré en EXP-002, et **jamais inférieur à une image vidéo** (limite de mesure). | Analyse vidéo image par image, fiche EXP |
 | O4 | **Chorégraphie** : enchaînement de figures tirées des mouvements disponibles [@S04, ch. 4 p. 15-16], décrit dans un format commun. | Au moins `[À DÉFINIR]` figures distinctes jouées sans intervention manuelle. | Démonstration, vidéo |
 | O5 | **Comportement collectif** : au moins une figure qui n'a de sens qu'à plusieurs (ex. vague, miroir, canon). | Figure identifiable par un observateur extérieur. | Vidéo, retour des tuteurs |
-| O6 | **Reproductibilité** : un tiers peut calibrer les robots, réinstaller et relancer la démonstration. | Procédure testée par un membre n'ayant pas écrit le code. | `reproductibilite.md` |
+| O6 | **Reproductibilité** : un tiers peut calibrer les robots, réinstaller et relancer la démonstration, à partir du seul rapport (20 à 50 pages, sans notre code) [@S28]. | Procédure testée par un membre n'ayant pas écrit le code. | `reproductibilite.md`, rapport |
+
+[FAIT] Un message est « reçu » seulement si l'ordre est **exécuté** : dans le code de l'an dernier, le
+robot répond à la requête HTTP avant d'exécuter l'ordre, et répond aussi « ok » à une commande
+inconnue [@S06, wifi.cpp l. 115-123, 130-214]. Une réponse du robot ne prouve donc ni l'exécution ni
+l'heure de départ. Les journaux de l'ordinateur ne suffisent pas non plus pour O2 et O3 : chaque robot
+a sa propre horloge [@S16, introduction].
+
+[FAIT] La mesure ne peut pas être plus fine que la durée d'une image de la vidéo (environ 33 ms à
+30 images par seconde, environ 17 ms à 60). Les seuils `[À DÉFINIR]` sont fixés **après EXP-002**,
+avec les tuteurs, et restent au moins égaux à cette limite. `[À VÉRIFIER : cadence de la caméra]`
 
 [HYPOTHÈSE] Les exemples de figures collectives de O5 s'inspirent de la famille « organisation
 spatiale » des comportements d'essaim [@S11, résumé]. Leur faisabilité dépend des déplacements
@@ -71,7 +81,7 @@ réels des robots, à tester.
 |---|---|---|
 | Indispensable (MVP) | O1, O2, O3 avec N = 2 | Cœur de la problématique : sans communication ni synchronisation, pas de sujet. |
 | Visé | O4, O5, N > 2 | Rend la démonstration convaincante. |
-| Bonus | Mesure automatique par vision (état de l'art §8) ; calage sur le rythme de la musique (état de l'art §4) | Lien avec le thème vision du module [@S01, slide 2], si les tuteurs le jugent pertinent. |
+| Bonus | Calage sur le rythme de la musique (état de l'art §4) | Hors MVP. La vision par ordinateur est écartée (décision d'équipe du 2026-11-17). |
 
 ## 4. Périmètre
 
@@ -88,6 +98,8 @@ réels des robots, à tester.
 - Génération automatique de chorégraphies à partir de la musique ou du langage naturel (voir
   SwarmGPT [@S12], cité à titre de comparaison uniquement).
 - Grands essaims (dizaines de robots).
+- Vision par ordinateur (décision d'équipe du 2026-11-17) : la synchronisation est mesurée sans
+  traitement d'image automatique (vidéo analysée à la main et/ou journaux).
 
 ## 5. Hypothèses de travail et contraintes
 | ID | Hypothèse / contrainte | Statut |
@@ -95,22 +107,23 @@ réels des robots, à tester.
 | H1 | Chaque robot possède sa propre unité de calcul (Arduino Nano). | [FAIT] [@S04, ch. 1 p. 7] |
 | H2 | La version de référence du robot peut communiquer à distance. | **Faux** : pas de Wi-Fi ni d'autre moyen distant [@S03, §3.4]. Un changement de carte ou un module est nécessaire. |
 | H3 | Les robots disposent de mouvements programmables prêts à l'emploi. | [FAIT] Mouvements de base et avancés [@S04, ch. 4 p. 15-16] |
-| H4 | Au moins deux robots fonctionnels et calibrés seront disponibles. | `[À VÉRIFIER]` |
-| H5 | Des cartes Nano RP2040 Connect (Wi-Fi) sont disponibles. | `[À VÉRIFIER]` — utilisées l'an dernier [@S03, §6.2] |
+| H4 | Au moins deux robots fonctionnels et calibrés seront disponibles. |
+| H5 | Les robots disposent d'un module Wi-Fi. | [FAIT — déclaré par l'équipe] module u-blox NINA-W102 ; nombre de robots et version de chacun `[À VÉRIFIER]`. Solution utilisée l'an dernier [@S03, §6.2] |
 | C1 | Contraintes génériques : puissance, taille, poids, bande passante, latence, fiabilité, coût. | [FAIT] [@S01, slide 5] |
 | C2 | Livrables : PoC + codes, rapport, soutenance + démo, vidéo de secours. | [FAIT] [@S01, slide 10] |
 | C3 | L'Arduino exécute les instructions de manière séquentielle. | [FAIT] [@S05, ch. 1 p. 7] |
 | C4 | Aucun retour de position : l'arrivée des pattes est estimée en boucle ouverte. | [FAIT] [@S04, §2.1 p. 10] |
-| C5 | Le code et le rapport de l'an dernier servent de guide ; tout est refait par l'équipe. | Règle d'équipe (CLAUDE.md §4.6) |
+| C5 | On repart du code de l'an dernier (reprise tracée et testée) ; son rapport reste un guide. | Décision d'équipe du 2026-11-17 (CLAUDE.md §4.6) |
+| C6 | Échéance : envoi des livrables avant la dernière séance (15/12 selon l'équipe, séance du 14/12 de 10 h à 13 h) ; semaine du 30/11 au 6/12 à garder légère (équipe en entreprise). | [@S28] et consigne d'équipe |
+| C7 | Architecture centralisée : l'ordinateur pilote et envoie les instructions. |
 
 ## 6. Démarche proposée pour fixer les seuils
 1. **EXP-001 — Prise en main et calibration** : calibrer chaque araignée [@S04, ch. 3 p. 13-14],
    puis passer les tests de base et avancés [@S04, ch. 4 p. 15-16].
 2. **EXP-002 — Mesure de référence** : envoyer le même ordre à deux robots sans mécanisme de
    synchronisation particulier, et mesurer l'écart de démarrage (vidéo et/ou journaux).
-   `[À VÉRIFIER avec les tuteurs]` Faut-il écrire notre propre outil minimal pour cette mesure, ou
-   peut-on utiliser le code de l'an dernier **uniquement comme instrument de mesure**, sans
-   l'intégrer à notre dépôt ?
+   Réponse du 2026-11-17 : le code de l'an dernier peut être utilisé, y compris pour cette mesure.
+   La mesure se fait sans vision par ordinateur (vidéo analysée image par image et/ou journaux).
 3. Fixer avec les tuteurs les seuils de O1 à O4 à partir de cette référence.
 4. Comparer chaque amélioration à cette référence, ce qui prouve l'apport du travail.
 
@@ -125,18 +138,24 @@ réels des robots, à tester.
 | Écarts entre documentation et code (noms, positions de référence, broches) | Moyen | Suivre la hiérarchie des sources ; trancher par un test (voir état de l'art §3.4). |
 | Casse d'un servomoteur ou d'une patte | Élevé | Règles de sécurité : robot éteint pour programmer, garde-fou min/max, calibration faite [@S04, ch. 1 p. 7 ; @S05, ex. 3 p. 22]. |
 | Absence de moyen de mesure de la synchronisation | Moyen | Méthode de mesure définie dès EXP-002. |
+| Calendrier serré : environ 4 semaines, équipe en entreprise, semaine du 30/11 à garder légère | Élevé | Concentrer les manipulations sur les deux semaines du 17 au 29/11 ; voir `gestion-projet.md`. |
+| Identifiants Wi-Fi écrits en dur dans le firmware de l'an dernier [@S06, wifi.h l. 9-12], alors que le dépôt GitHub est public | Moyen | Ne jamais committer de vrais identifiants : fichier local ignoré par git, valeurs factices dans le dépôt. |
 
-## 8. Questions à poser aux tuteurs
-1. Combien d'araignées nous seront prêtées, et avec quelle version électronique (carte mère
-   d'origine, Nano + DFR0012, Nano RP2040 Connect, Compute Module) ?
-2. Où récupérer le croquis officiel `spider_sealk` ? Est-ce la même base que le firmware de l'an
-   dernier ?
-3. A-t-on le droit de partir de la base officielle de mouvement (Motion, contrôleur de pattes) et
-   de ne réécrire que la couche communication ?
-4. L'API de communication est-elle imposée (API HTTP de l'an dernier, ROS 2 présenté en
-   [@S01, slide 6]…) ou à choisir ?
-5. Architecture attendue : contrôle centralisé accepté, ou coordination décentralisée exigée ?
-6. La vision par ordinateur est-elle attendue sur ce sujet, et sous quelle forme ?
-7. Quel niveau de synchronisation serait jugé satisfaisant pour la démonstration ?
-8. Peut-on utiliser le code de l'an dernier comme instrument de mesure pour EXP-002 (§6) ?
-9. Dates de soutenance et jalons intermédiaires ; accès au *Skillbook Arduino – Prise en main*.
+## 8. Questions du 2026-11-17 : réponses de l'équipe
+| # | Question | Réponse de l'équipe | Statut |
+|---|---|---|---|
+| 1 | Nombre d'araignées et version électronique de chacune ? | Module Wi-Fi **u-blox NINA-W102** (déclaré). Nombre de robots et version de chacun : inconnus | Partiel |
+| 2 | Où récupérer le croquis officiel `spider_sealk` ? | Un croquis est un programme Arduino. On repart du firmware déjà en main (S06) ; sa provenance exacte reste à vérifier (non bloquant) | Réglé |
+| 3 | Peut-on partir de la base existante sans tout réécrire ? | Oui, on repart de ce qu'on a | Réglé |
+| 4 | API de communication imposée ou libre ? | Choisie par l'équipe (ADR à écrire) | Réglé |
+| 5 | Architecture centralisée ou décentralisée ? | Centralisée : l'ordinateur pilote et envoie les instructions (« normalement ») | À confirmer |
+| 6 | Vision par ordinateur attendue ? | Non | Réglé |
+| 7 | Niveau de synchronisation jugé satisfaisant ? | À demander aux tuteurs | Ouvert |
+| 8 | Code de l'an dernier utilisable comme instrument de mesure ? | Oui | Réglé |
+| 9 | Dates et jalons ; *Skillbook Arduino* ? | Tous les skill books sont obtenus. Rendu pour le 15/12 ; séance du 14/12 de 10 h à 13 h. Date de soutenance à confirmer | Partiel |
+
+### Questions restantes pour les tuteurs
+1. Quel niveau de synchronisation serait jugé satisfaisant pour la démonstration ? (seuils O1 à O4)
+2. L'architecture centralisée est-elle bien acceptée ?
+3. Date, heure et ordre de passage de la soutenance.
+4. Combien de robots peut-on avoir pour la démonstration, et à quelles dates peut-on les manipuler ?

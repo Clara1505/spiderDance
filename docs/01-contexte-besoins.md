@@ -1,7 +1,7 @@
 # 01 — Contexte et besoins
 
-> **Statut** : brouillon v0.3 — à valider par l'équipe
-> **Dernière mise à jour** : 2026-09-29
+> **Statut** : brouillon v0.4 — à valider par l'équipe
+> **Dernière mise à jour** : 2026-11-17
 > **Rédaction** : Clara SION SAUNIER (avec assistance IA)
 > **Légende** : `[FAIT]` vérifié et sourcé · `[HYPOTHÈSE]` raisonnement non vérifié · `[À VÉRIFIER]` plausible mais non confirmé
 > **Citations** : `[@ID, localisation]`, clés définies dans `docs/sources.bib`
@@ -58,6 +58,11 @@ Trois caractéristiques du robot structurent directement le sujet :
    Wi-Fi ni d'autre moyen de communication distante, le robot étant piloté par des séquences
    locales ou par une connexion directe [@S03, §3.4].
 
+[FAIT — déclaré par l'équipe, à confirmer sur la carte de chaque robot] Le module Wi-Fi des robots
+de l'équipe est un **u-blox NINA-W102**. Cela correspond à la solution Wi-Fi de l'an dernier, qui
+utilise la bibliothèque WiFiNINA [@S06, wifi.h l. 3-6]. Le nombre de robots et la version
+électronique de chacun restent à confirmer `[À VÉRIFIER]`.
+
 [FAIT] Le contrôleur de pattes synchronise les pattes **d'un même robot**, par une estimation en
 boucle ouverte [@S04, §2.1 p. 10]. Les skill books ne décrivent aucun mécanisme de coordination
 **entre** robots.
@@ -76,7 +81,9 @@ de synchronisation entre robots.
 reçoit indépendamment, par sa propre file et son propre fil d'exécution [@S07, app.py l. 35-141 et
 181-203] : il n'existe pas de départ synchronisé.
 
-Ces travaux servent uniquement de **guide** : tout sera refait et mesuré par notre équipe
+Décision d'équipe : on **repart du code existant** (S06 à S08) plutôt que de tout
+réécrire. La reprise est tracée, et ce qui est repris est testé et mesuré sur nos robots avant de
+s'y fier ; le rapport S03 reste un guide, ses affirmations n'étant pas des mesures sur nos robots
 (détails dans `03-etat-de-l-art.md`, §3).
 
 ## 5. Domaine : de la coordination multi-robots à la robotique en essaim
@@ -95,7 +102,7 @@ systèmes plus robustes, tolérants aux pannes et flexibles qu'un robot seul [@S
 [HYPOTHÈSE] Avec un nombre de robots probablement réduit, le projet relève davantage de la
 **coordination multi-robots** que de la robotique en essaim au sens strict, qui vise de grands
 nombres de robots. Le code de l'an dernier référence 17 araignées [@S06, corrections.h l. 15-33],
-mais le nombre qui nous sera prêté n'est pas connu `[À VÉRIFIER]`.
+mais le nombre qui nous sera prêté n'est pas connu.
 
 ## 6. Enjeux du domaine
 
@@ -141,13 +148,15 @@ une démonstration orale.
 | B7 | Pouvoir **déclencher** une chorégraphie de l'extérieur au lieu de la lancer à l'allumage. | [FAIT] La séquence est écrite dans `Trajectory::setup()` [@S04, §2.1 p. 10]. |
 | B8 | Tenir compte de l'**exécution séquentielle** de l'Arduino. | [FAIT] La simultanéité des pattes est une illusion obtenue en découpant et alternant les mouvements [@S05, ch. 1 p. 7]. |
 
-### 8.3 Besoins issus du cadre PROJEX [@S01, slide 10]
+### 8.3 Besoins issus du cadre PROJEX [@S01, slide 10 ; @S28]
 | ID | Besoin |
 |---|---|
 | B9 | Fournir un **démonstrateur** fonctionnel et ses codes sources documentés. |
 | B10 | Pouvoir **prouver** le fonctionnement (« Est-ce que ça marche ? À quel point ? »), donc **mesurer** la synchronisation. |
-| B11 | Rendre le travail **reproductible** par un tiers. |
-| B12 | Disposer d'une **vidéo de démonstration de secours**. |
+| B11 | Rendre le travail **reproductible** : un rapport de 20 à 50 pages doit permettre à un tiers de le refaire de zéro, sans connaissances préalables et sans notre code [@S28]. |
+| B12 | Disposer d'une **vidéo de démonstration de secours** [@S28]. |
+| B13 | Préparer une **présentation orale** d'environ 15 minutes, avec slides [@S28]. |
+| B14 | **Envoyer** slides, vidéo, archive de code et rapport par mail aux deux tuteurs avant la dernière séance [@S28]. |
 
 ## 9. Parties prenantes
 | Partie prenante | Rôle / attente |
@@ -170,12 +179,31 @@ une démonstration orale.
 - [FAIT] Robot et poste de contrôle doivent être sur le même réseau local dans la solution Wi-Fi de
   l'an dernier, et certains réseaux isolent les appareils entre eux [@S03, §9.2].
 
-### 10.2 Éléments encore inconnus (à obtenir auprès des tuteurs)
+- [FAIT] **Échéance** : livrables à envoyer par mail aux deux tuteurs avant la dernière séance
+  [@S28]. Selon l'équipe, c'est pour le **15 décembre 2026** ; l'avant-dernière séance a lieu le
+  **lundi 14 décembre de 10 h à 13 h** et l'objectif interne est d'envoyer à 13 h au plus tard à
+  l'issue de cette séance. `[À VÉRIFIER : date et heure de la soutenance]`
+- [FAIT — consigne de l'équipe] Les quatre membres sont en entreprise : la semaine du 30 novembre
+  au 6 décembre doit rester la plus légère possible.
+- [FAIT — décisions de l'équipe, 2026-11-17] On repart du code existant ; l'équipe choisit son API ;
+  architecture centralisée (l'ordinateur pilote et envoie les instructions) `[À VÉRIFIER]` ; pas de
+  vision par ordinateur.
+
+### 10.2 Éléments encore inconnus
 - Nombre d'araignées prêtées et **version électronique** de chacune (carte mère d'origine, Nano +
-  shield DFR0012, Nano RP2040 Connect, Compute Module) [@S03, §2.4, §5, §6]. `[À VÉRIFIER]`
-- Emplacement du croquis officiel `spider_sealk` : S04 indique « une fois téléchargé » sans donner
-  de lien [@S04, ch. 2 p. 9]. `[À VÉRIFIER]`
-- API de communication imposée ou libre ; l'API HTTP de l'an dernier est-elle attendue ? `[À VÉRIFIER]`
-- Place attendue de la vision par ordinateur dans ce sujet. `[À VÉRIFIER]`
-- Date de la soutenance et jalons intermédiaires. `[À VÉRIFIER]`
-- Le *Skillbook Arduino – Prise en main*, prérequis des deux skill books [@S04, p. 3 ; @S05, p. 3]. `[À VÉRIFIER : à récupérer]`
+  shield DFR0012, Nano RP2040 Connect, Compute Module) [@S03, §2.4, §5, §6]. Seul le module Wi-Fi
+  (u-blox NINA-W102) est déclaré par l'équipe. `[À VÉRIFIER]`
+- Accès aux robots : dates et créneaux disponibles avant le 14/12. `[À VÉRIFIER]`
+- Niveau de synchronisation jugé satisfaisant par les tuteurs (à leur demander). `[À VÉRIFIER]`
+- Architecture centralisée : confirmation par les tuteurs. `[À VÉRIFIER]`
+- Date, heure et ordre de passage de la soutenance. `[À VÉRIFIER]`
+- Modalité d'envoi des livrables (taille de la vidéo et de l'archive par mail). `[À VÉRIFIER]`
+- Auteurs de chaque partie du code S06 à S08. `[À VÉRIFIER]`
+
+### 10.3 Éléments levés le 2026-11-17
+- API de communication : **choisie par l'équipe**, non imposée.
+- Vision par ordinateur : **aucune**.
+- Croquis officiel `spider_sealk` : un croquis est un programme Arduino ; l'équipe repart du firmware
+  de l'an dernier (S06), qui en reprend l'architecture.
+- *Skillbook Arduino – Prise en main* : obtenu par l'équipe, avec tous les skill books.
+- Réutilisation du code de l'an dernier : **autorisée** (reprise tracée et testée).

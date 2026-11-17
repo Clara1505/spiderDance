@@ -1,11 +1,11 @@
 # 03 — État de l'art
 
-> **Statut** : brouillon v0.2 — à valider par l'équipe
-> **Dernière mise à jour** : 2026-09-29
+> **Statut** : brouillon v0.3 — à valider par l'équipe
+> **Dernière mise à jour** : 2026-11-17
 > **Légende** : `[FAIT]` vérifié et sourcé · `[HYPOTHÈSE]` raisonnement non vérifié · `[À VÉRIFIER]` plausible mais non confirmé
 > **Citations** : `[@ID, localisation]`, clés définies dans `docs/sources.bib`
 >
-> ⚠️ **Niveau de lecture** : les skill books (S04, S05), le rapport (S03) et le code (S06, S07) de
+> ⚠️ **Niveau de lecture** : les skill books (S04, S05), le rapport (S03) et le code (S06, S07, S08) de
 > l'an dernier ont été lus en entier. Pour les sources externes (S09 et suivantes), seuls les
 > résumés, introductions ou extraits indiqués dans `sources.bib` ont été lus. Elles doivent être
 > lues en entier par un membre de l'équipe avant la version finale du rapport.
@@ -30,7 +30,7 @@
 | §5 | Architectures de coordination | Q1 |
 | §6 | Synchronisation temporelle | Q2 |
 | §7 | Moyens de communication | Q3 |
-| §8 | Mesure par vision | Q5 |
+| §8 | Mesure de la synchronisation (sans vision par ordinateur) | Q5 |
 
 ---
 
@@ -89,8 +89,9 @@ identifiant `SPIDER_ID` [@S04, ch. 3 p. 14].
 
 ## 3. Travaux antérieurs sur ce robot (2025–2026)
 
-> Statut : **guide uniquement**. Ces travaux orientent nos choix ; rien n'est repris dans notre
-> dépôt, et toute observation utilisée sera d'abord reproduite dans une fiche EXP.
+> Statut : **base de départ** (décision d'équipe du 2026-11-17). On repart du code existant plutôt
+> que de tout réécrire ; ce qui est repris est identifié, testé sur nos robots (fiche EXP) et
+> crédité. Les affirmations du rapport S03 ne sont pas des mesures sur nos robots.
 
 ### 3.1 Ce qui a été tenté
 **Axe 1 — Compute Module** [@S03, §5]
@@ -283,7 +284,10 @@ les unes par rapport aux autres [@S16, introduction].
 
 ## 7. Moyens de communication
 
-⚠️ Le choix dépend de la carte de chaque robot, encore inconnue. Aucune option n'est retenue ici.
+⚠️ Le choix dépend de la carte de chaque robot. Le module Wi-Fi déclaré par l'équipe est un
+u-blox NINA-W102 : l'option Wi-Fi est donc la plus directe, mais aucune option n'est encore retenue
+(ADR à venir). Les tuteurs demandent des tableaux comparatifs avec des critères tels que prix,
+taille et disponibilité [@S28] : ces colonnes sont **à compléter**, aucune valeur n'est inventée ici.
 
 | Option | Condition matérielle | Ce qu'on sait | Limite connue |
 |---|---|---|---|
@@ -300,18 +304,24 @@ une fois serait un avantage ; la solution HTTP de l'an dernier s'adresse aux rob
 
 ---
 
-## 8. Mesure de la synchronisation par vision
+## 8. Mesure de la synchronisation (sans vision par ordinateur)
 
-[FAIT] Les marqueurs fiduciaires carrés ArUco facilitent l'estimation de pose : un seul marqueur
-fournit, par ses quatre coins, assez de correspondances pour obtenir la pose de la caméra, et son
-codage binaire le rend robuste grâce à la détection et la correction d'erreurs [@S26, introduction].
+> **Décision d'équipe (2026-11-17)** : pas de vision par ordinateur. Les marqueurs ArUco étudiés dans
+> la version précédente de ce document [@S26] ne sont pas retenus.
 
-[HYPOTHÈSE] Un marqueur ArUco sur chaque robot, filmé par une caméra fixe, permettrait de mesurer
-l'instant de début de chaque mouvement et d'en déduire l'écart de synchronisation (objectif O3).
-C'est d'autant plus utile que les robots n'ont aucun retour de position (§4.2). Cela relierait le
-projet au thème vision du module [@S01, slide 7]. À valider avec les tuteurs.
+[HYPOTHÈSE] Deux moyens de mesure restent possibles, à valider en EXP-002 :
+- **Vidéo analysée à la main** : filmer les robots ensemble, repérer image par image l'instant de
+  début d'un même mouvement, et en déduire l'écart. La précision est limitée par la cadence de la
+  caméra `[À VÉRIFIER : matériel disponible]`.
+- **Journaux horodatés** : utiles pour suivre les envois d'ordres, mais insuffisants seuls. Chaque
+  robot a sa propre horloge [@S16, introduction], et le robot répond à la requête HTTP **avant**
+  d'exécuter l'ordre [@S06, wifi.cpp l. 115-123] : l'horodatage côté ordinateur ne dit pas quand le
+  mouvement démarre.
+- **Repère lumineux** : les commandes `LUMOS` et `NOX` [@S06, wifi.cpp l. 130-214] pourraient servir
+  de signal visible pour caler la vidéo `[HYPOTHÈSE : à tester]`.
 
-[FAIT] L'an dernier, une caméra a été montée sur le module de calcul d'un robot [@S03, Figure 2].
+[FAIT] Les robots n'ont aucun retour de position [@S04, §2.1 p. 10] : une mesure **externe**
+(vidéo) est donc la seule façon de prouver que les mouvements démarrent ensemble.
 
 ### Note sur la génération du mouvement
 [FAIT] Les générateurs centraux de rythme (CPG) produisent des motifs rythmiques coordonnés à partir
@@ -329,7 +339,7 @@ Le code SEALK repose, lui, sur la cinématique inverse et une file d'ordres [@S0
 | Q2 Temps commun | Dérive inévitable [@S16] ; départ diffusé [@S27], NTP [@S22], lucioles [@S20] | Signal de départ d'abord, puis correction (T3) |
 | Q3 Communication | Pas de communication sur la version de référence [@S03, §3.4] ; plusieurs options (§7) | Dépend des cartes prêtées |
 | Q4 Chorégraphie | Séquences de primitives [@S17 ; @S15] ; primitives SEALK existantes [@S04, ch. 4] | Script horodaté de primitives (T2), vérifié avant exécution (T4) |
-| Q5 Mesure | Aucune mesure l'an dernier ; marqueurs ArUco [@S26] | Mesure vidéo dès EXP-002 |
+| Q5 Mesure | Aucune mesure l'an dernier [@S03, §6.8] | Mesure sur vidéo (à la main) et/ou journaux dès EXP-002 ; pas de vision par ordinateur |
 
 **Positionnement** : le projet ne cherche pas à dépasser l'état de l'art des drones. Son apport
 attendu est de **transposer** des techniques éprouvées (trajectoire stockée à bord et départ
