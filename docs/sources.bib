@@ -2,7 +2,7 @@
 % Clé = ID de la source, identique dans docs/ (Markdown) et rapport/rapport.tex.
 % Règle : seuls les champs connus sont remplis. Un champ inconnu est omis ou signalé en note « À VÉRIFIER ».
 % Convention : « note » précise aussi ce qui a été lu (résumé seul ou texte intégral).
-% Dernière mise à jour : 2026-09-29
+% Dernière mise à jour : 2026-11-17
 
 % =====================================================================
 % S01–S08 : documents du projet (cours, énoncé, travaux antérieurs)
@@ -49,20 +49,20 @@
 
 @software{S06,
   title   = {spider\_SEALK (v2) -- firmware Arduino avec modes Wi-Fi et radio},
-  note    = {Archive : spider\_SEALK\_wifi.zip, dossier spider\_SEALK\_v2/spider\_SEALK/. Auteurs À VÉRIFIER. Lu en entier. Utilisé comme guide uniquement},
+  note    = {Archive : spider\_SEALK\_wifi.zip, dossier spider\_SEALK\_v2/spider\_SEALK/. Auteurs À VÉRIFIER. Lu en entier. Base de départ de l'équipe (décision du 2026-11-17)},
   urldate = {2026-09-29}
 }
 
 @software{S07,
   title   = {spider-control -- superviseur multi-robots (Flask, React/Vite)},
-  note    = {Archive : spider-control.zip. Auteurs À VÉRIFIER. Lu en entier (backend, configuration, extrait du frontend). Utilisé comme guide uniquement},
+  note    = {Archive : spider-control.zip. Auteurs À VÉRIFIER. Lu en entier (backend, configuration, extrait du frontend). Base de départ de l'équipe (décision du 2026-11-17)},
   urldate = {2026-09-29}
 }
 
 @software{S08,
   title   = {spider\_cli.py -- client en ligne de commande},
-  note    = {Auteurs À VÉRIFIER. Fichier absent des archives reçues : contenu NON vérifié. Utilisé comme guide uniquement},
-  urldate = {2026-09-29}
+  note    = {Fichier ajouté au projet le 2026-09-29, lu en entier le 2026-11-17. Auteurs À VÉRIFIER. Base de départ de l'équipe (décision du 2026-11-17)},
+  urldate = {2026-11-17}
 }
 
 % =====================================================================
@@ -266,7 +266,7 @@
   author  = {{OpenCV}},
   title   = {Detection of ArUco Markers (tutoriel)},
   url     = {https://docs.opencv.org/5.0/tutorials/objdetect/aruco_detection/aruco_detection.html},
-  note    = {Documentation officielle. Introduction du tutoriel lue},
+  note    = {Documentation officielle. Introduction du tutoriel lue. Source écartée : pas de vision par ordinateur (décision du 2026-11-17)},
   urldate = {2026-09-28}
 }
 
@@ -279,4 +279,94 @@
   url       = {https://whoenig.github.io/publications/2017_ICRA_Preiss_Hoenig.pdf},
   note      = {Prénoms et pages À VÉRIFIER. Extraits du texte intégral lus (résumé, §IV, §VIII, §XI-A)},
   urldate   = {2026-09-29}
+}
+
+% =====================================================================
+% S28 : document du projet reçu après la numérotation initiale (numéroté à la suite pour ne rien renuméroter)
+% =====================================================================
+
+@misc{S28,
+  author       = {{Encadrants PROJEX}},
+  title        = {Productions attendues en fin de parcours et premiers jalons},
+  howpublished = {Consignes PROJEX, EPITA},
+  note         = {Document du projet. Texte transmis par l'équipe le 2026-11-17. À VÉRIFIER : document d'origine},
+  urldate      = {2026-11-17}
+}
+
+% =====================================================================
+% S29 à S37 : sources de prix, tailles et disponibilités (tableaux comparatifs, docs/04-choix-techniques/tableaux-comparatifs.md)
+% Lues sous forme d'extraits de résultats de recherche le 2026-11-17 ; pages complètes à relire avant le rapport final.
+% Les prix varient selon le pays, le revendeur et la date.
+% =====================================================================
+
+@misc{S29,
+  title        = {Arduino Nano RP2040 Connect -- fiche produit (dimensions, poids, module Wi-Fi)},
+  howpublished = {Boutique Arduino, page pour la Hongrie},
+  url          = {https://store.arduino.cc/en-hu/products/arduino-nano-rp2040-connect},
+  note         = {Extrait lu : dimensions 45 mm x 18 mm, poids 6 g, module Nina W102. À VÉRIFIER : page complète},
+  urldate      = {2026-11-17}
+}
+
+@misc{S30,
+  title        = {Arduino Nano RP2040 Connect -- prix et description},
+  howpublished = {Boutique Arduino, page pour l'Allemagne},
+  url          = {https://store.arduino.cc/en-de/collections/black-friday/products/arduino-nano-rp2040-connect},
+  note         = {Extrait lu : prix 29,99 EUR TVA comprise ; module u-blox NINA-W102. Prix variable, À VÉRIFIER},
+  urldate      = {2026-11-17}
+}
+
+@misc{S31,
+  title        = {Arduino Nano RP2040 Connect -- prix},
+  howpublished = {Boutique Arduino, page pour le Danemark},
+  url          = {https://store.arduino.cc/en-dk/products/arduino-nano-rp2040-connect},
+  note         = {Extrait lu : prix 31,50 EUR. Prix variable, À VÉRIFIER},
+  urldate      = {2026-11-17}
+}
+
+@misc{S32,
+  title        = {Arduino Nano RP2040 Connect -- prix et stock},
+  howpublished = {The Pi Hut (revendeur britannique)},
+  url          = {https://thepihut.com/collections/latest-arduino-products/products/arduino-nano-rp2040-connect},
+  note         = {Extrait lu : 26 GBP TVA comprise, version sans connecteurs, en stock. À VÉRIFIER},
+  urldate      = {2026-11-17}
+}
+
+@misc{S33,
+  title        = {NRF24L01+ Module (Elecrow) -- prix et stock},
+  howpublished = {Littlebird Electronics (boutique australienne)},
+  url          = {https://littlebirdelectronics.com.au/products/nrf24l01-module-1},
+  note         = {Extrait lu : prix 1,94 (devise non précisée dans l'extrait), en stock. À VÉRIFIER},
+  urldate      = {2026-11-17}
+}
+
+@misc{S34,
+  title        = {nRF24L01+ 2.4GHz RF Wireless Module -- dimensions},
+  howpublished = {ProtoSupplies},
+  url          = {https://protosupplies.com/product/nrf24l01-2-4ghz-rf-wireless-module/},
+  note         = {Extrait lu : circuit imprimé 29 mm x 15 mm. À VÉRIFIER},
+  urldate      = {2026-11-17}
+}
+
+@misc{S35,
+  title        = {Raspberry Pi Compute Modules 4 (CM4) -- caractéristiques},
+  howpublished = {Mouser},
+  url          = {https://eu.mouser.com/raspberry-pi-cm4-compute-modules},
+  note         = {Extrait lu : dimensions 55 mm x 40 mm x 4,7 mm, 32 variantes. À VÉRIFIER},
+  urldate      = {2026-11-17}
+}
+
+@misc{S36,
+  title        = {Raspberry Pi Compute Module 4 4GB/32GB Wi-Fi (DFR0775)},
+  howpublished = {DFRobot},
+  url          = {https://www.dfrobot.com/product-2150.html},
+  note         = {Extrait lu : 85 USD ; produit retiré du catalogue. À VÉRIFIER},
+  urldate      = {2026-11-17}
+}
+
+@manual{S37,
+  author       = {{Raspberry Pi Ltd}},
+  title        = {Raspberry Pi Compute Module 4 Product Brief},
+  url          = {https://pip-assets.raspberrypi.com/categories/634-raspberry-pi-compute-module-4/documents/RP-008169-DS-8-cm4-product-brief.pdf},
+  note         = {Extrait lu : production annoncée jusqu'en janvier 2034 au moins ; tableau de prix non relu en entier. À VÉRIFIER : page complète},
+  urldate      = {2026-11-17}
 }

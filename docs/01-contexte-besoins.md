@@ -1,6 +1,6 @@
 # 01 — Contexte et besoins
 
-> **Statut** : brouillon v0.4 — à valider par l'équipe
+> **Statut** : brouillon v0.5 — à valider par l'équipe
 > **Dernière mise à jour** : 2026-11-17
 > **Rédaction** : Clara SION SAUNIER (avec assistance IA)
 > **Légende** : `[FAIT]` vérifié et sourcé · `[HYPOTHÈSE]` raisonnement non vérifié · `[À VÉRIFIER]` plausible mais non confirmé
@@ -187,17 +187,18 @@ une démonstration orale.
 - [FAIT — consigne de l'équipe] Les quatre membres sont en entreprise : la semaine du 30 novembre
   au 6 décembre doit rester la plus légère possible.
 - [FAIT — décisions de l'équipe, 2026-11-17] On repart du code existant ; l'équipe choisit son API ;
-  architecture centralisée (l'ordinateur pilote et envoie les instructions) `[À VÉRIFIER]` ; pas de
-  vision par ordinateur.
+  pas de vision par ordinateur.
+- [FAIT — réponses des tuteurs, 2026-11-17] **Architecture centralisée acceptée** : l'ordinateur envoie
+  les instructions à tous les robots via l'API. **Niveau de synchronisation attendu** : synchronisé
+  **à l'œil**, avec un **recalage sur le mouvement suivant** si un décalage apparaît. **Nombre de
+  robots** : 3 ou 4 pour commencer, davantage si l'avancement et la disponibilité le permettent.
 
 ### 10.2 Éléments encore inconnus
-- Nombre d'araignées prêtées et **version électronique** de chacune (carte mère d'origine, Nano +
+- **Version électronique** de chacune des araignées prêtées (le nombre visé est de 3 ou 4) (carte mère d'origine, Nano +
   shield DFR0012, Nano RP2040 Connect, Compute Module) [@S03, §2.4, §5, §6]. Seule la carte
   (Nano RP2040 Connect) est déclarée par l'équipe ; sa présence sur chaque robot reste à
   confirmer. `[À VÉRIFIER]`
 - Accès aux robots : dates et créneaux disponibles avant le 14/12. `[À VÉRIFIER]`
-- Niveau de synchronisation jugé satisfaisant par les tuteurs (à leur demander). `[À VÉRIFIER]`
-- Architecture centralisée : confirmation par les tuteurs. `[À VÉRIFIER]`
 - Date, heure et ordre de passage de la soutenance. `[À VÉRIFIER]`
 - Modalité d'envoi des livrables (taille de la vidéo et de l'archive par mail). `[À VÉRIFIER]`
 - Auteurs de chaque partie du code S06 à S08. `[À VÉRIFIER]`
@@ -209,3 +210,6 @@ une démonstration orale.
   de l'an dernier (S06), qui en reprend l'architecture.
 - *Skillbook Arduino – Prise en main* : obtenu par l'équipe, avec tous les skill books.
 - Réutilisation du code de l'an dernier : **autorisée** (reprise tracée et testée).
+- Architecture : **centralisée**, confirmée par les tuteurs (ADR-002).
+- Niveau de synchronisation : **à l'œil, avec recalage sur le mouvement suivant** (ADR-002, ADR-004).
+- Nombre de robots pour la démonstration : **3 ou 4** (dates d'accès encore à connaître).

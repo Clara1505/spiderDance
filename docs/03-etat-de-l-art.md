@@ -1,6 +1,6 @@
 # 03 — État de l'art
 
-> **Statut** : brouillon v0.3 — à valider par l'équipe
+> **Statut** : brouillon v0.4 — à valider par l'équipe
 > **Dernière mise à jour** : 2026-11-17
 > **Légende** : `[FAIT]` vérifié et sourcé · `[HYPOTHÈSE]` raisonnement non vérifié · `[À VÉRIFIER]` plausible mais non confirmé
 > **Citations** : `[@ID, localisation]`, clés définies dans `docs/sources.bib`
@@ -236,9 +236,10 @@ obtenir des comportements collectifs robustes et capables de passer à l'échell
 | Exemples | [FAIT] Planificateur central [@S18] ; superviseur de l'an dernier [@S07, app.py] | [FAIT] Principes de la robotique en essaim [@S09 ; @S10] |
 | Adéquation avec l'énoncé (« distributed robotics ») | `[HYPOTHÈSE]` Partielle | `[HYPOTHÈSE]` Forte |
 
-[HYPOTHÈSE] Une **architecture hybride**, inspirée de T1, est envisageable : un poste diffuse la
-chorégraphie et le signal de départ, puis chaque robot l'exécute seul avec sa propre horloge. Ce
-choix fera l'objet d'un ADR.
+[FAIT] **Décision (ADR-002)** : architecture **centralisée**, acceptée par les tuteurs le 2026-11-17, avec
+envoi parallèle des ordres et recalage avant chaque mouvement. [HYPOTHÈSE] Une **architecture hybride**,
+inspirée de T1 (un poste diffuse la chorégraphie et le signal de départ, puis chaque robot l'exécute seul),
+reste une piste d'amélioration si la mesure le justifie.
 
 ---
 
@@ -285,9 +286,10 @@ les unes par rapport aux autres [@S16, introduction].
 ## 7. Moyens de communication
 
 ⚠️ Le choix dépend de la carte de chaque robot. Les robots de l'équipe ont, selon elle, une
-carte Nano RP2040 Connect (module Wi-Fi NINA-W102) : l'option Wi-Fi est donc la plus directe, mais aucune option n'est encore retenue
-(ADR à venir). Les tuteurs demandent des tableaux comparatifs avec des critères tels que prix,
-taille et disponibilité [@S28] : ces colonnes sont **à compléter**, aucune valeur n'est inventée ici.
+carte Nano RP2040 Connect (module Wi-Fi NINA-W102) : l'option Wi-Fi est donc la plus directe. **Option
+retenue : Wi-Fi + HTTP (ADR-003).** Les tuteurs demandent des tableaux comparatifs avec des critères tels
+que prix, taille et disponibilité [@S28] : ils sont dans `docs/04-choix-techniques/tableaux-comparatifs.md`
+(valeurs sourcées, à revérifier ; aucune valeur inventée).
 
 | Option | Condition matérielle | Ce qu'on sait | Limite connue |
 |---|---|---|---|
@@ -333,13 +335,13 @@ Le code SEALK repose, lui, sur la cinématique inverse et une file d'ordres [@S0
 
 ## 9. Synthèse et positionnement
 
-| Question | Ce que dit l'état de l'art | Piste pour le projet (à décider en ADR) |
+| Question | Ce que dit l'état de l'art | Décision pour le projet |
 |---|---|---|
-| Q1 Architecture | Centralisé et décentralisé coexistent [@S19] ; le superviseur de l'an dernier est centralisé, sans départ commun [@S07, app.py l. 181-203] | Hybride : diffusion de la chorégraphie et du départ, exécution autonome (T1) |
-| Q2 Temps commun | Dérive inévitable [@S16] ; départ diffusé [@S27], NTP [@S22], lucioles [@S20] | Signal de départ d'abord, puis correction (T3) |
-| Q3 Communication | Pas de communication sur la version de référence [@S03, §3.4] ; plusieurs options (§7) | Dépend des cartes prêtées |
-| Q4 Chorégraphie | Séquences de primitives [@S17 ; @S15] ; primitives SEALK existantes [@S04, ch. 4] | Script horodaté de primitives (T2), vérifié avant exécution (T4) |
-| Q5 Mesure | Aucune mesure l'an dernier [@S03, §6.8] | Mesure sur vidéo (à la main) et/ou journaux dès EXP-002 ; pas de vision par ordinateur |
+| Q1 Architecture | Centralisé et décentralisé coexistent [@S19] ; le superviseur de l'an dernier est centralisé, sans départ commun [@S07, app.py l. 181-203] | Centralisé, envoi parallèle, recalage à chaque mouvement (ADR-002) ; hybride (T1) gardé comme piste |
+| Q2 Temps commun | Dérive inévitable [@S16] ; départ diffusé [@S27], NTP [@S22], lucioles [@S20] | Recalage avant chaque mouvement : le rendez-vous est donné par l'ordinateur (ADR-002) |
+| Q3 Communication | Pas de communication sur la version de référence [@S03, §3.4] ; plusieurs options (§7) | Wi-Fi + HTTP existant, avec corrections de l'API (ADR-003) |
+| Q4 Chorégraphie | Séquences de primitives [@S17 ; @S15] ; primitives SEALK existantes [@S04, ch. 4] | Fichier d'étapes de primitives (T2), vérifié avant exécution (T4) ; mode à blanc (ADR-005) |
+| Q5 Mesure | Aucune mesure l'an dernier [@S03, §6.8] | Vidéo analysée image par image, journaux en complément ; EXP-002 puis EXP-004 ; pas de vision par ordinateur (ADR-004) |
 
 **Positionnement** : le projet ne cherche pas à dépasser l'état de l'art des drones. Son apport
 attendu est de **transposer** des techniques éprouvées (trajectoire stockée à bord et départ

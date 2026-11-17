@@ -1,6 +1,6 @@
 # Gestion de projet
 
-> **Statut** : brouillon v0.1 — à valider par l'équipe
+> **Statut** : brouillon v0.2 — à valider par l'équipe
 > **Dernière mise à jour** : 2026-11-17
 > **Légende** : `[FAIT]` vérifié et sourcé · `[HYPOTHÈSE]` raisonnement non vérifié · `[À VÉRIFIER]` plausible mais non confirmé
 > **Citations** : `[@ID, localisation]`, clés définies dans `docs/sources.bib`
@@ -24,7 +24,7 @@
 
 ## 2. Équipe et rôles (proposition)
 
-Je ne connais pas les compétences ni les disponibilités de Rachel, Eva et Aida : la répartition suit des **fonctions**, à échanger librement. Règle proposée : chaque tâche a un **responsable** et un **relais**, pour qu'aucune tâche critique ne dépende d'une seule personne.
+Les compétences et les disponibilités de chacun ne sont pas renseignées : la répartition suit des **fonctions**, à échanger librement. Règle proposée : chaque tâche a un **responsable** et un **relais**, pour qu'aucune tâche critique ne dépende d'une seule personne.
 
 | Membre | Rôle principal | Relais sur | Responsable de |
 |---|---|---|---|
@@ -43,12 +43,12 @@ Liste **séquentielle** voulue par les encadrants [@S28]. Poids de 1 (léger) à
 
 | ID | Macro-tâche | Poids | POC intermédiaire / livrable partiel | Zone d'ombre |
 |---|---|---|---|---|
-| M0 | Cadrage : valider docs, envoyer les questions restantes aux tuteurs, confirmer dates et formations | 1 | Mail envoyé aux tuteurs ; docs validés | Délai de réponse des tuteurs |
+| M0 | Cadrage : valider les documents du projet, envoyer les questions restantes aux tuteurs, confirmer dates et formations | 1 | Mail envoyé aux tuteurs ; docs validés | Délai de réponse des tuteurs |
 | M1 | Inventaire et calibration des robots (EXP-001) | 3 | **POC 1** : chaque robot calibré passe le test de base et le test avancé [@S04, ch. 3-4] | Nombre de robots, version de chacun, état, créneaux d'accès |
 | M2 | Prise en main du firmware Wi-Fi et du poste de contrôle (flash, `SPIDER_ID`, réseau, CLI) + test des hypothèses sur S06 (EXP-003) | 3 | **POC 2** : un robot piloté en Wi-Fi depuis l'ordinateur ; hypothèses de S06 testées | Réseau de la salle (clients isolés) [@S03, §9.2] ; connexion lente [@S03, §6.8] ; identifiants en dur [@S06, wifi.h l. 9-12] |
-| M3 | Mesure de référence (EXP-002) : 2 robots, même ordre, sans synchro | 3 | Livrable partiel : écart mesuré + seuils proposés aux tuteurs | Méthode de mesure sans vision (cadence de la caméra) ; seuil jugé satisfaisant inconnu |
-| M4 | Choix techniques : ADR (reprise du code, architecture, communication, départ commun, format de chorégraphie), **schéma système**, **tableaux comparatifs** | 3 | Livrable partiel : ADR + schéma + tableaux (prix, taille, disponibilité) | Prix et disponibilités à collecter ; dépend de M2 et M3 |
-| M5 | Départ commun sur 2 robots (MVP : O1, O2, O3) | 4 | **POC 3** : 2 robots démarrent le même mouvement sur une commande unique | Diffusion possible ou non avec la bibliothèque Wi-Fi `[À VÉRIFIER]` ; un robot occupé ne lit pas les requêtes [@S03, §6.4] ; dérive des horloges [@S16] |
+| M3 | Mesure de référence (EXP-002) : 2 robots, même ordre, sans synchro | 3 | Livrable partiel : écart mesuré (référence sans recalage) | Méthode de mesure sans vision (cadence de la caméra) ; seuil jugé satisfaisant inconnu |
+| M4 | Choix techniques : ADR (reprise du code, architecture, communication, départ commun, format de chorégraphie), **schéma système**, **tableaux comparatifs** | 3 | Livrable partiel : ADR-001 à ADR-005, schéma système et tableaux comparatifs **rédigés le 17/11, à valider par le groupe** | Valeurs des tableaux à revérifier ; hypothèses des ADR à tester en M2 et M3 |
+| M5 | Envoi parallèle et recalage à chaque mouvement sur 3 robots (option A+ de l'ADR-002 ; MVP : O1, O2, O3) | 4 | **POC 3** : 3 robots enchaînent plusieurs mouvements, chacun lancé après la disponibilité de tous | « Disponible » = répond à `/api/health` `[HYPOTHÈSE]` ; limite de 60 commandes cumulées `[HYPOTHÈSE]` ; un robot occupé ne lit pas les requêtes [@S03, §6.4] ; robot perdu du Wi-Fi |
 | M6 | Format de chorégraphie et exécution (vérification de faisabilité avant téléversement) | 3 | **POC 4** : courte chorégraphie jouée par 2 robots | Limite de 60 entrées, `deep_sleep` sans effet `[HYPOTHÈSE]` [@S06, trajectory.h l. 45-47 ; body.h l. 59-129] |
 | M7 | Mesure avec départ commun et comparaison à la référence (EXP-004) | 3 | Livrable partiel : tableau avant / après | Fiabilité d'une mesure faite à la main sur vidéo |
 | M8 | Chorégraphie finale avec une figure collective (O4, O5) et répétitions | 3 | Démonstrateur complet joué sans intervention manuelle | Fiabilité en conditions de soutenance |
@@ -65,24 +65,25 @@ Liste **séquentielle** voulue par les encadrants [@S28]. Poids de 1 (léger) à
 |---|---|---|---|---|
 | 1 | Nombre de robots et version électronique de chacun (seule la carte Nano RP2040 Connect est déclarée) | Taille du MVP, choix de communication | Inventaire (M1) | 22/11 |
 | 2 | Accès aux robots : dates, lieu, créneaux | Tout le planning | Demander aux tuteurs | 20/11 |
-| 3 | Niveau de synchronisation jugé satisfaisant | Seuils O1 à O4 | Question aux tuteurs, avec les résultats d'EXP-002 | 29/11 |
-| 4 | Architecture centralisée acceptée ? | Conception | Question aux tuteurs | 22/11 |
+| 3 | Niveau de synchronisation jugé satisfaisant | Objectifs O1 à O3 | **Réglé le 17/11** : synchronisé à l'œil, recalage sur le mouvement suivant | — |
+| 4 | Architecture centralisée acceptée ? | Conception | **Réglé le 17/11** : acceptée par les tuteurs (ADR-002) | — |
 | 5 | Date, heure et format de la soutenance | Slides, démonstrateur | Question aux tuteurs | 22/11 |
 | 6 | Modalité d'envoi de la vidéo et de l'archive (taille par mail) | Dernier jour | Question aux tuteurs | 29/11 |
-| 7 | Diffusion à tous les robots possible avec la bibliothèque Wi-Fi ? | Départ commun | Lire la documentation de la bibliothèque, puis tester | 29/11 |
+| 7 | Diffusion à tous les robots possible avec la bibliothèque Wi-Fi ? | Piste d'amélioration seulement | Plus nécessaire pour l'option A+ ; à regarder si la mesure montre un départ trop décalé | — |
 | 8 | Hypothèses sur S06 (`deep_sleep`, 60 ordres, rejeu après `DONE`, trajectoire jouée au démarrage) | Fiabilité de la base de code | EXP-003 | 29/11 |
 | 9 | Réseau : la salle isole-t-elle les appareils ? Faut-il un point d'accès à nous ? | Connexion des robots | Tester sur place ; prévoir un point d'accès [@S03, §9.2] | 29/11 |
 | 10 | Caméra disponible et sa cadence | Précision de la mesure | Inventaire du matériel de l'équipe | 22/11 |
 | 11 | Formations spécifiques proposées par les tuteurs : dates | Charge | Demander [@S28] | 22/11 |
-| 12 | Auteurs de chaque partie du code S06 à S08 | Crédits dans le rapport | Demander aux tuteurs | 06/12 |
+| 12 | Auteur de chaque fichier du code S06 à S08 (le rapport S03 attribue le Wi-Fi et l'API à Maxence Dupont, le Compute Module à Célian Crépin) | Crédits dans le rapport | Demander aux tuteurs quels fichiers viennent du croquis officiel | 06/12 |
+| 13 | Hypothèses de l'option A+ : « disponible » = répond à `/api/health` ; limite de 60 commandes cumulées | Recalage et chorégraphies longues | EXP-003 | 29/11 |
 
 ## 5. Planning par semaine (parallélisé)
 
 | Semaine | Charge | Objectif | Clara | Rachel | Eva | Aida |
 |---|---|---|---|---|---|---|
-| **S1** : mar 17 → dim 22/11 | Moyenne | Cadrer, inventorier, calibrer | Valider docs, committer, envoyer le mail aux tuteurs (zones 2, 4, 5, 6, 11) | Inventaire des robots (nombre, carte, `SPIDER_ID`, min/max des boîtes) ; EXP-001 robot 1 | Appui calibration ; inventaire des figures disponibles [@S04, ch. 4-5] | Protocole de mesure (caméra, cadence, repère) ; lecture des chapitres calibration |
+| **S1** : mar 17 → dim 22/11 | Moyenne | Cadrer, inventorier, calibrer | Faire valider les documents par le groupe, committer, mail de suivi aux tuteurs (zones 2, 5, 6, 11, 12) | Inventaire des robots (nombre, carte, `SPIDER_ID`, min/max des boîtes) ; EXP-001 robot 1 | Appui calibration ; inventaire des figures disponibles [@S04, ch. 4-5] | Protocole de mesure (caméra, cadence, repère) ; lecture des chapitres calibration |
 | **S2** : lun 23 → dim 29/11 | **Élevée** (dernière semaine pleine) | Robots calibrés, Wi-Fi, mesure de référence, début du départ commun | M2 (réseau, CLI, superviseur) ; début M5 ; squelette LaTeX par conversion de `docs/01` à `03` | M1 fin (tous les robots) ; flash du firmware Wi-Fi ; EXP-003 | Calibration avec Rachel ; format de script de chorégraphie ; début des tableaux comparatifs | **EXP-002** avec Clara |
-| **S3** : lun 30/11 → dim 06/12 | **Très légère : ≤ 2 h par personne**, travail de bureau, aucun robot obligatoire | Mettre au propre ce qui a été fait | Schéma système + ADR architecture et départ commun | Fiches EXP-001 et EXP-003 ; section calibrations de `reproductibilite.md` | Tableaux comparatifs finis (prix, taille, disponibilité) ; chorégraphie écrite sur papier | Fiche EXP-002 ; proposition de seuils aux tuteurs |
+| **S3** : lun 30/11 → dim 06/12 | **Très légère : ≤ 2 h par personne**, travail de bureau, aucun robot obligatoire | Mettre au propre ce qui a été fait | Relire et ajuster les ADR et le schéma système après les premiers essais ; fiche EXP-003 avec Rachel | Fiches EXP-001 et EXP-003 ; section calibrations de `reproductibilite.md` | Revérifier les valeurs des tableaux comparatifs ; chorégraphie écrite (format de l'ADR-005, mode à blanc) | Fiche EXP-002 ; protocole de mesure de l'ADR-004 mis au propre |
 | **S4** : lun 07 → dim 13/12 | **Très élevée** (bouclage) | Lun-mer : robots. Jeu : gel du code. Jeu-dim : rapport, slides, vidéo, archive | M5 fini avec Rachel (lun-mar) ; intégration du rapport (jeu-sam) | M5 et M6 sur robots (lun-mer) ; archive et reproductibilité (jeu-ven) | M6 et M8 sur robots (lun-mer) ; slides (jeu-sam) | M7 mesures (mar-mer) ; vidéo de secours (jeu) ; chapitre résultats (ven-sam) |
 | **lun 14/12** (10 h-13 h) | Séance | Vérifier et envoyer | Envoi du mail à 12 h 30 au plus tard | Test de l'archive sur une machine propre | Dernière répétition | Lecture de la vidéo, relecture |
 | **mar 15/12** | Dernière séance | Soutenance `[À VÉRIFIER]` | Démo | Démo | Présentation | Vidéo de secours prête |
@@ -118,6 +119,8 @@ Les risques techniques sont dans `02-probleme-objectifs.md` §7. Risques supplé
 ## 8. Suivi
 
 - Point d'équipe de 15 minutes par semaine (30 minutes en visio en S3, sans rien d'autre).
+- Une entrée de journal dans `docs/journal/` après chaque session de travail.
+- **Seule l'équipe pousse sur GitHub** (règle d'équipe).
 
 ## 9. Conformité aux premiers jalons demandés [@S28]
 
@@ -126,6 +129,6 @@ Les risques techniques sont dans `02-probleme-objectifs.md` §7. Risques supplé
 | Contexte et problématique (1–2 slides, ½ à 2 pages) | `01`, `02` | Rédigé, à valider |
 | Timeline (macro-tâches, POC, poids 1–5, zones d'ombre) | Ce document, §3 et §4 | Fait |
 | État de l'art : projets similaires | `03` | Rédigé, à valider |
-| État de l'art : tableaux hardware / software (prix, taille, disponibilité…) | `03` §7 | Colonnes **à renseigner** |
-| Schéma système (éléments + interconnexions) | `04-choix-techniques/` | **À faire** (M4) |
+| État de l'art : tableaux hardware / software (prix, taille, disponibilité…) | `04-choix-techniques/tableaux-comparatifs.md` | Rédigés avec sources ; **valeurs à revérifier** ; certaines cases à renseigner |
+| Schéma système (éléments + interconnexions) | `04-choix-techniques/schema-systeme.md` | Rédigé (v0.1), à valider |
 | Formations spécifiques | À suivre | Dates à demander |

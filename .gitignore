@@ -1,0 +1,25 @@
+# Identifiants et configuration locale : ne jamais versionner
+.env
+*.local.*
+secrets.*
+*credentials*
+
+# Vidéos et gros fichiers (envoyés par mail, pas dans le dépôt)
+*.mp4
+*.mov
+*.avi
+
+# Fichiers temporaires de compilation LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.synctex.gz
+
+# Divers
+.DS_Store
+node_modules/
+__pycache__/
+*.pyc
