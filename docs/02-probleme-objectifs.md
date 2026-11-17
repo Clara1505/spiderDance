@@ -113,7 +113,7 @@ réels des robots, à tester.
 | C2 | Livrables : PoC + codes, rapport, soutenance + démo, vidéo de secours. | [FAIT] [@S01, slide 10] |
 | C3 | L'Arduino exécute les instructions de manière séquentielle. | [FAIT] [@S05, ch. 1 p. 7] |
 | C4 | Aucun retour de position : l'arrivée des pattes est estimée en boucle ouverte. | [FAIT] [@S04, §2.1 p. 10] |
-| C5 | On repart du code de l'an dernier (reprise tracée et testée) ; son rapport reste un guide. | Décision d'équipe du 2026-11-17 (CLAUDE.md §4.6) |
+| C5 | On repart du code de l'an dernier (reprise tracée et testée) ; son rapport reste un guide. | Décision d'équipe du 2026-11-17|
 | C6 | Échéance : envoi des livrables avant la dernière séance (15/12 selon l'équipe, séance du 14/12 de 10 h à 13 h) ; semaine du 30/11 au 6/12 à garder légère (équipe en entreprise). | [@S28] et consigne d'équipe |
 | C7 | Architecture centralisée : l'ordinateur pilote et envoie les instructions. |
 
