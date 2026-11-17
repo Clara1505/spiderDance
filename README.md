@@ -25,6 +25,7 @@ La synchronisation est mesurée sur vidéo, sans vision par ordinateur. Détails
 | `docs/06-validation-resultats.md` | Résultats mesurés |
 | `docs/gestion-projet.md` | Timeline, planning, répartition, risques |
 | `docs/reproductibilite.md` | Matériel, versions, procédure, code repris / modifié / écrit par nous |
+| `docs/journal/` | Journal de bord daté |
 | `docs/sources.bib` | Bibliographie |
 
 ## Code

@@ -2,7 +2,7 @@
 
 > **Statut** : brouillon v0.5 — à valider par l'équipe
 > **Dernière mise à jour** : 2026-11-17
-> **Rédaction** : Clara SION SAUNIER (avec assistance IA)
+> **Rédaction** : Clara SION SAUNIER
 > **Légende** : `[FAIT]` vérifié et sourcé · `[HYPOTHÈSE]` raisonnement non vérifié · `[À VÉRIFIER]` plausible mais non confirmé
 > **Citations** : `[@ID, localisation]`, clés définies dans `docs/sources.bib`
 
