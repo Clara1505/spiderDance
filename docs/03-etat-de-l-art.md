@@ -284,14 +284,14 @@ les unes par rapport aux autres [@S16, introduction].
 
 ## 7. Moyens de communication
 
-⚠️ Le choix dépend de la carte de chaque robot. Le module Wi-Fi déclaré par l'équipe est un
-u-blox NINA-W102 : l'option Wi-Fi est donc la plus directe, mais aucune option n'est encore retenue
+⚠️ Le choix dépend de la carte de chaque robot. Les robots de l'équipe ont, selon elle, une
+carte Nano RP2040 Connect (module Wi-Fi NINA-W102) : l'option Wi-Fi est donc la plus directe, mais aucune option n'est encore retenue
 (ADR à venir). Les tuteurs demandent des tableaux comparatifs avec des critères tels que prix,
 taille et disponibilité [@S28] : ces colonnes sont **à compléter**, aucune valeur n'est inventée ici.
 
 | Option | Condition matérielle | Ce qu'on sait | Limite connue |
 |---|---|---|---|
-| Wi-Fi sur Arduino Nano RP2040 Connect | Remplacer la Nano [@S03, §6.2] | [FAIT] Utilisé l'an dernier avec la bibliothèque WiFiNINA et un serveur HTTP [@S06, wifi.h l. 3-6 ; wifi.cpp l. 83-128] | Connexion de plusieurs secondes, tremblements des servos [@S03, §6.8] |
+| Wi-Fi sur Arduino Nano RP2040 Connect | Carte déjà présente selon l'équipe `[À VÉRIFIER]` ; sinon remplacer la Nano [@S03, §6.2] | [FAIT] Utilisé l'an dernier avec la bibliothèque WiFiNINA et un serveur HTTP [@S06, wifi.h l. 3-6 ; wifi.cpp l. 83-128] | Connexion de plusieurs secondes, tremblements des servos [@S03, §6.8] |
 | Module de calcul + liaison série | Ajouter un Compute Module [@S03, §5] | [FAIT] Commandes simples validées par l'équipe précédente [@S03, §5.7] | Alimentation, niveaux logiques 3,3 V / 5 V [@S03, §5.8] |
 | Radio nRF24L01 | Ajouter un module radio | [FAIT] Prévu dans le firmware de l'an dernier [@S06, radio.h l. 48-49] | 6 ordres seulement ; compilation douteuse (§3.1) |
 | ROS 2 | Ordinateur capable de l'exécuter | [FAIT] Intergiciel robotique : nœuds, topics, services, actions [@S01, slide 6] | Présenté en cours, non imposé |

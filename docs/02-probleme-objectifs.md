@@ -52,7 +52,7 @@ Réaliser un démonstrateur dans lequel **N araignées SEALK** (N ≥ 2) exécut
 chorégraphie commune, coordonnée par une API de communication, avec une synchronisation mesurée et
 documentée.
 
-## 3.2 Objectifs spécifiques
+### 3.2 Objectifs spécifiques
 | ID | Objectif | Critère de réussite | Moyen de preuve |
 |---|---|---|---|
 | O1 | **Communication** : chaque ordre envoyé par l'ordinateur est reçu **et exécuté** par le robot visé. | 100 % des ordres exécutés sur `[À DÉFINIR]` chorégraphies complètes consécutives. Taux = ordres exécutés / ordres envoyés. | Vidéo et/ou journaux, fiche EXP |
@@ -108,7 +108,7 @@ réels des robots, à tester.
 | H2 | La version de référence du robot peut communiquer à distance. | **Faux** : pas de Wi-Fi ni d'autre moyen distant [@S03, §3.4]. Un changement de carte ou un module est nécessaire. |
 | H3 | Les robots disposent de mouvements programmables prêts à l'emploi. | [FAIT] Mouvements de base et avancés [@S04, ch. 4 p. 15-16] |
 | H4 | Au moins deux robots fonctionnels et calibrés seront disponibles. |
-| H5 | Les robots disposent d'un module Wi-Fi. | [FAIT — déclaré par l'équipe] module u-blox NINA-W102 ; nombre de robots et version de chacun `[À VÉRIFIER]`. Solution utilisée l'an dernier [@S03, §6.2] |
+| H5 | Les robots disposent d'une carte Nano RP2040 Connect (Wi-Fi). | [FAIT — déclaré par l'équipe] module Wi-Fi NINA-W102 ; présence sur chaque robot, nombre de robots et version de chacun `[À VÉRIFIER]`. Solution utilisée l'an dernier [@S03, §6.2] |
 | C1 | Contraintes génériques : puissance, taille, poids, bande passante, latence, fiabilité, coût. | [FAIT] [@S01, slide 5] |
 | C2 | Livrables : PoC + codes, rapport, soutenance + démo, vidéo de secours. | [FAIT] [@S01, slide 10] |
 | C3 | L'Arduino exécute les instructions de manière séquentielle. | [FAIT] [@S05, ch. 1 p. 7] |
@@ -144,7 +144,7 @@ réels des robots, à tester.
 ## 8. Questions du 2026-11-17 : réponses de l'équipe
 | # | Question | Réponse de l'équipe | Statut |
 |---|---|---|---|
-| 1 | Nombre d'araignées et version électronique de chacune ? | Module Wi-Fi **u-blox NINA-W102** (déclaré). Nombre de robots et version de chacun : inconnus | Partiel |
+| 1 | Nombre d'araignées et version électronique de chacune ? | Carte **Nano RP2040 Connect** déclarée (module Wi-Fi NINA-W102). Nombre de robots et présence de cette carte sur chacun : à confirmer | Partiel |
 | 2 | Où récupérer le croquis officiel `spider_sealk` ? | Un croquis est un programme Arduino. On repart du firmware déjà en main (S06) ; sa provenance exacte reste à vérifier (non bloquant) | Réglé |
 | 3 | Peut-on partir de la base existante sans tout réécrire ? | Oui, on repart de ce qu'on a | Réglé |
 | 4 | API de communication imposée ou libre ? | Choisie par l'équipe (ADR à écrire) | Réglé |

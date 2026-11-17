@@ -63,7 +63,7 @@ Liste **séquentielle** voulue par les encadrants [@S28]. Poids de 1 (léger) à
 
 | # | Zone d'ombre | Impact | Action | Pour quand |
 |---|---|---|---|---|
-| 1 | Nombre de robots et version électronique de chacun (seule la puce Wi-Fi NINA-W102 est déclarée) | Taille du MVP, choix de communication | Inventaire (M1) | 22/11 |
+| 1 | Nombre de robots et version électronique de chacun (seule la carte Nano RP2040 Connect est déclarée) | Taille du MVP, choix de communication | Inventaire (M1) | 22/11 |
 | 2 | Accès aux robots : dates, lieu, créneaux | Tout le planning | Demander aux tuteurs | 20/11 |
 | 3 | Niveau de synchronisation jugé satisfaisant | Seuils O1 à O4 | Question aux tuteurs, avec les résultats d'EXP-002 | 29/11 |
 | 4 | Architecture centralisée acceptée ? | Conception | Question aux tuteurs | 22/11 |

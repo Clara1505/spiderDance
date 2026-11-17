@@ -58,8 +58,9 @@ Trois caractéristiques du robot structurent directement le sujet :
    Wi-Fi ni d'autre moyen de communication distante, le robot étant piloté par des séquences
    locales ou par une connexion directe [@S03, §3.4].
 
-[FAIT — déclaré par l'équipe, à confirmer sur la carte de chaque robot] Le module Wi-Fi des robots
-de l'équipe est un **u-blox NINA-W102**. Cela correspond à la solution Wi-Fi de l'an dernier, qui
+[FAIT — déclaré par l'équipe, à confirmer sur chaque robot] Les robots de l'équipe utilisent une
+carte **Arduino Nano RP2040 Connect** (microcontrôleur RP2040, avec un module Wi-Fi u-blox
+NINA-W102). C'est la carte de la solution Wi-Fi de l'an dernier [@S03, §6.2], dont le firmware
 utilise la bibliothèque WiFiNINA [@S06, wifi.h l. 3-6]. Le nombre de robots et la version
 électronique de chacun restent à confirmer `[À VÉRIFIER]`.
 
@@ -191,8 +192,9 @@ une démonstration orale.
 
 ### 10.2 Éléments encore inconnus
 - Nombre d'araignées prêtées et **version électronique** de chacune (carte mère d'origine, Nano +
-  shield DFR0012, Nano RP2040 Connect, Compute Module) [@S03, §2.4, §5, §6]. Seul le module Wi-Fi
-  (u-blox NINA-W102) est déclaré par l'équipe. `[À VÉRIFIER]`
+  shield DFR0012, Nano RP2040 Connect, Compute Module) [@S03, §2.4, §5, §6]. Seule la carte
+  (Nano RP2040 Connect) est déclarée par l'équipe ; sa présence sur chaque robot reste à
+  confirmer. `[À VÉRIFIER]`
 - Accès aux robots : dates et créneaux disponibles avant le 14/12. `[À VÉRIFIER]`
 - Niveau de synchronisation jugé satisfaisant par les tuteurs (à leur demander). `[À VÉRIFIER]`
 - Architecture centralisée : confirmation par les tuteurs. `[À VÉRIFIER]`
