@@ -43,7 +43,7 @@ Liste **séquentielle** voulue par les encadrants [@S28]. Poids de 1 (léger) à
 
 | ID | Macro-tâche | Poids | POC intermédiaire / livrable partiel | Zone d'ombre |
 |---|---|---|---|---|
-| M0 | Cadrage : valider docs et CLAUDE.md, envoyer les questions restantes aux tuteurs, confirmer dates et formations | 1 | Mail envoyé aux tuteurs ; docs validés | Délai de réponse des tuteurs |
+| M0 | Cadrage : valider docs, envoyer les questions restantes aux tuteurs, confirmer dates et formations | 1 | Mail envoyé aux tuteurs ; docs validés | Délai de réponse des tuteurs |
 | M1 | Inventaire et calibration des robots (EXP-001) | 3 | **POC 1** : chaque robot calibré passe le test de base et le test avancé [@S04, ch. 3-4] | Nombre de robots, version de chacun, état, créneaux d'accès |
 | M2 | Prise en main du firmware Wi-Fi et du poste de contrôle (flash, `SPIDER_ID`, réseau, CLI) + test des hypothèses sur S06 (EXP-003) | 3 | **POC 2** : un robot piloté en Wi-Fi depuis l'ordinateur ; hypothèses de S06 testées | Réseau de la salle (clients isolés) [@S03, §9.2] ; connexion lente [@S03, §6.8] ; identifiants en dur [@S06, wifi.h l. 9-12] |
 | M3 | Mesure de référence (EXP-002) : 2 robots, même ordre, sans synchro | 3 | Livrable partiel : écart mesuré + seuils proposés aux tuteurs | Méthode de mesure sans vision (cadence de la caméra) ; seuil jugé satisfaisant inconnu |
@@ -80,7 +80,7 @@ Liste **séquentielle** voulue par les encadrants [@S28]. Poids de 1 (léger) à
 
 | Semaine | Charge | Objectif | Clara | Rachel | Eva | Aida |
 |---|---|---|---|---|---|---|
-| **S1** : mar 17 → dim 22/11 | Moyenne | Cadrer, inventorier, calibrer | Valider docs et CLAUDE.md, committer, envoyer le mail aux tuteurs (zones 2, 4, 5, 6, 11) | Inventaire des robots (nombre, carte, `SPIDER_ID`, min/max des boîtes) ; EXP-001 robot 1 | Appui calibration ; inventaire des figures disponibles [@S04, ch. 4-5] | Protocole de mesure (caméra, cadence, repère) ; lecture des chapitres calibration |
+| **S1** : mar 17 → dim 22/11 | Moyenne | Cadrer, inventorier, calibrer | Valider docs, committer, envoyer le mail aux tuteurs (zones 2, 4, 5, 6, 11) | Inventaire des robots (nombre, carte, `SPIDER_ID`, min/max des boîtes) ; EXP-001 robot 1 | Appui calibration ; inventaire des figures disponibles [@S04, ch. 4-5] | Protocole de mesure (caméra, cadence, repère) ; lecture des chapitres calibration |
 | **S2** : lun 23 → dim 29/11 | **Élevée** (dernière semaine pleine) | Robots calibrés, Wi-Fi, mesure de référence, début du départ commun | M2 (réseau, CLI, superviseur) ; début M5 ; squelette LaTeX par conversion de `docs/01` à `03` | M1 fin (tous les robots) ; flash du firmware Wi-Fi ; EXP-003 | Calibration avec Rachel ; format de script de chorégraphie ; début des tableaux comparatifs | **EXP-002** avec Clara |
 | **S3** : lun 30/11 → dim 06/12 | **Très légère : ≤ 2 h par personne**, travail de bureau, aucun robot obligatoire | Mettre au propre ce qui a été fait | Schéma système + ADR architecture et départ commun | Fiches EXP-001 et EXP-003 ; section calibrations de `reproductibilite.md` | Tableaux comparatifs finis (prix, taille, disponibilité) ; chorégraphie écrite sur papier | Fiche EXP-002 ; proposition de seuils aux tuteurs |
 | **S4** : lun 07 → dim 13/12 | **Très élevée** (bouclage) | Lun-mer : robots. Jeu : gel du code. Jeu-dim : rapport, slides, vidéo, archive | M5 fini avec Rachel (lun-mar) ; intégration du rapport (jeu-sam) | M5 et M6 sur robots (lun-mer) ; archive et reproductibilité (jeu-ven) | M6 et M8 sur robots (lun-mer) ; slides (jeu-sam) | M7 mesures (mar-mer) ; vidéo de secours (jeu) ; chapitre résultats (ven-sam) |
@@ -118,8 +118,6 @@ Les risques techniques sont dans `02-probleme-objectifs.md` §7. Risques supplé
 ## 8. Suivi
 
 - Point d'équipe de 15 minutes par semaine (30 minutes en visio en S3, sans rien d'autre).
-- Une entrée de journal dans `docs/journal/` après chaque session de travail.
-- **Seule l'équipe pousse sur GitHub**, jamais Claude (CLAUDE.md §6.4).
 
 ## 9. Conformité aux premiers jalons demandés [@S28]
 
