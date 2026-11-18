@@ -32,8 +32,8 @@ démarrent un mouvement ensemble**.
 2. Niveau de synchronisation attendu : **synchronisé à l'œil**, et si les robots se décalent, ils
    **se recalent sur le mouvement suivant**.
 3. Nombre de robots pour la démonstration : **3 ou 4** pour commencer, davantage si l'avancement et la
-   disponibilité des robots le permettent. Les dates d'accès aux robots ne sont pas encore connues
-   `[À VÉRIFIER]`.
+   disponibilité des robots le permettent. Les robots sont à domicile (déclaré par l'équipe, 2026-11-18) ;
+   chez qui et combien : `[À VÉRIFIER]`.
 
 ## Options envisagées
 

@@ -1,7 +1,7 @@
 # 02 — Problématique et objectifs
 
-> **Statut** : brouillon v0.4 — à valider par l'équipe
-> **Dernière mise à jour** : 2026-11-17
+> **Statut** : brouillon v0.5 — à valider par l'équipe
+> **Dernière mise à jour** : 2026-11-18
 > **Légende** : `[FAIT]` vérifié et sourcé · `[HYPOTHÈSE]` raisonnement non vérifié · `[À VÉRIFIER]` plausible mais non confirmé · `[À DÉFINIR]` valeur à fixer par l'équipe
 > **Citations** : `[@ID, localisation]`, clés définies dans `docs/sources.bib`
 
@@ -116,7 +116,7 @@ réels des robots, à tester.
 | C3 | L'Arduino exécute les instructions de manière séquentielle. | [FAIT] [@S05, ch. 1 p. 7] |
 | C4 | Aucun retour de position : l'arrivée des pattes est estimée en boucle ouverte. | [FAIT] [@S04, §2.1 p. 10] |
 | C5 | On repart du code de l'an dernier (reprise tracée et testée) ; son rapport reste un guide. | Décision d'équipe du 2026-11-17 |
-| C6 | Échéance : envoi des livrables avant la dernière séance (15/12 selon l'équipe, séance du 14/12 de 10 h à 13 h) ; semaine du 30/11 au 6/12 à garder légère (équipe en entreprise). | [@S28] et consigne d'équipe |
+| C6 | Échéance : envoi des livrables avant la dernière séance, le mercredi 16/12 (jour de la soutenance) ; envoi interne à la fin de l'avant-dernière séance, le lundi 14/12 (10 h à 13 h), pour garder de la marge ; semaine du 30/11 au 6/12 à garder légère (équipe en entreprise). | [@S28] et consigne d'équipe |
 | C7 | Architecture centralisée : l'ordinateur pilote et envoie les instructions. | Confirmée par les tuteurs le 2026-11-17 (ADR-002) |
 
 ## 6. Démarche de mesure et de comparaison
@@ -156,9 +156,9 @@ réels des robots, à tester.
 | 6 | Vision par ordinateur attendue ? | Non | Réglé |
 | 7 | Niveau de synchronisation jugé satisfaisant ? | Synchronisé à l'œil, avec recalage sur le mouvement suivant en cas de décalage (tuteurs, 2026-11-17) | Réglé |
 | 8 | Code de l'an dernier utilisable comme instrument de mesure ? | Oui | Réglé |
-| 9 | Dates et jalons ; *Skillbook Arduino* ? | Tous les skill books sont obtenus. Rendu pour le 15/12 ; séance du 14/12 de 10 h à 13 h. Date de soutenance à confirmer | Partiel |
+| 9 | Dates et jalons ; *Skillbook Arduino* ? | Tous les skill books sont obtenus. Soutenance et dernière séance le 16/12 ; envoi interne le 14/12 (séance de 10 h à 13 h). Heure, ordre de passage et format de la soutenance à confirmer | Partiel |
 
 ### Questions restantes pour les tuteurs
-1. Date, heure et ordre de passage de la soutenance.
-2. À quelles dates peut-on manipuler les robots (3 ou 4 visés) ?
+1. Heure, ordre de passage et format de la soutenance (la date est le 16/12).
+2. Modalité d'envoi de la vidéo et de l'archive de code (taille par mail).
 3. Quels fichiers du firmware viennent du croquis officiel des tuteurs, et lesquels ont été écrits par l'équipe précédente ?

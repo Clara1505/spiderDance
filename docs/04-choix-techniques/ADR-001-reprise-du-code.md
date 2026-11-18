@@ -66,12 +66,12 @@ pour ce point.
 - **Tracer** : chaque élément est classé *repris tel quel / repris et modifié / écrit par nous*, dans
   `docs/reproductibilite.md`, puis repris dans le rapport.
 - **Créditer** : les auteurs du rapport de l'an dernier sont Célian Crépin et Maxence Dupont [@S03]. Selon
-  ce rapport, le travail sur le Wi-Fi (adaptation du code embarqué, API de commande, interface de
+  l'équipe (2026-11-18), tout le code fourni (S06 à S08) est de Célian Crépin et Maxence Dupont. Selon le
+  rapport, le travail sur le Wi-Fi (adaptation du code embarqué, API de commande, interface de
   pilotage à distance) est celui de Maxence Dupont, et le Compute Module celui de Célian Crépin
-  [@S03, §1.4]. Les fichiers S06 à S08 ne portent pas de nom d'auteur dans ce que nous avons lu ; on
-  ne sait donc pas, fichier par fichier, ce qui vient de Maxence, de Célian ou des tuteurs (le
-  firmware reprend l'architecture du croquis officiel [@S04, §2.1]). `[À VÉRIFIER]` : confirmer
-  auprès des tuteurs, avec la liste des fichiers.
+  [@S03, §1.4]. Les fichiers S06 à S08 ne portent pas de nom d'auteur dans ce que nous avons lu : la
+  répartition fichier par fichier reste inconnue (non bloquant ; le firmware reprend l'architecture
+  du croquis officiel [@S04, §2.1]).
 - **Tester avant de s'y fier** : les constats de lecture sont des hypothèses tant qu'ils ne sont pas
   testés en fiche EXP.
 - **Décrire dans le rapport** : rôle, paramètres et procédure de chaque élément repris, car le rapport

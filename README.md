@@ -45,4 +45,4 @@ câble. Tester dans un espace dégagé. Respecter la plage min/max de chaque ser
 
 ## État
 
-Projet en cours : phase de cadrage et de choix techniques (novembre 2026). Rendu avant la dernière séance.
+Projet en cours : phase de cadrage et de choix techniques (novembre 2026). Envoi des livrables le 14 décembre, soutenance le 16 décembre 2026.

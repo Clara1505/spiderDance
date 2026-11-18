@@ -1,7 +1,7 @@
 # Reproductibilité
 
-> **Statut** : squelette v0.1 — à compléter au fil des essais, à valider par l'équipe
-> **Dernière mise à jour** : 2026-11-17
+> **Statut** : squelette v0.2 — à compléter au fil des essais, à valider par l'équipe
+> **Dernière mise à jour** : 2026-11-18
 > **Légende** : `[FAIT]` vérifié et sourcé · `[HYPOTHÈSE]` raisonnement non vérifié · `[À VÉRIFIER]` plausible mais non confirmé · `[À COMPLÉTER]` information à fournir après les essais
 > **Citations** : `[@ID, localisation]`, clés définies dans `docs/sources.bib`
 
@@ -15,7 +15,7 @@ Rien dans ce fichier ne doit contenir de vrais identifiants (Wi-Fi, mots de pass
 
 | Élément | Quantité | Détail | Statut |
 |---|---|---|---|
-| Araignées SEALK | 3 ou 4 visées | 4 pattes × 3 servomoteurs [@S04, ch. 1 p. 7] | Nombre réel `[À COMPLÉTER]` (inventaire, issue M1a) |
+| Araignées SEALK | 3 ou 4 visées | 4 pattes × 3 servomoteurs [@S04, ch. 1 p. 7] ; robots à domicile (déclaré par l'équipe, 2026-11-18) | Nombre réel `[À COMPLÉTER]` (inventaire, issue M1a) |
 | Carte de contrôle de chaque robot | une par robot | Arduino Nano RP2040 Connect déclarée par l'équipe (module Wi-Fi NINA-W102) | `[À VÉRIFIER sur chaque robot]` |
 | Alimentation | une par robot | Batterie ; version selon le robot [@S04, ch. 1 p. 7 ; @S03, §3.2] | `[À COMPLÉTER]` |
 | Mire de calibration, règle, plots | — | Pour la calibration et les essais robot allumé [@S04, ch. 3 ; @S05, ch. 1 p. 8] | Matériel des tuteurs |
@@ -47,9 +47,10 @@ fur et à mesure.
 | Fichier de chorégraphie | — | **Écrit par nous** | — | ADR-005 |
 | Protocole de mesure sur vidéo, fiches de relevé | — | **Écrit par nous** | — | ADR-004 |
 
-Crédits : rapport et code de l'an dernier par Célian Crépin et Maxence Dupont [@S03] ; selon ce rapport, le
-Wi-Fi et l'interface de pilotage sont de Maxence Dupont [@S03, §1.4]. L'auteur de chaque fichier n'est pas
-indiqué dans le code `[À VÉRIFIER avec les tuteurs]`.
+Crédits : rapport de l'an dernier par Célian Crépin et Maxence Dupont [@S03] ; tout le code fourni (S06 à S08)
+est de Célian Crépin et Maxence Dupont (déclaré par l'équipe, 2026-11-18). Selon le rapport, le Wi-Fi et
+l'interface de pilotage sont de Maxence Dupont [@S03, §1.4]. L'auteur de chaque fichier n'est pas indiqué
+dans le code : la répartition fichier par fichier reste inconnue (non bloquant).
 
 ## 4. Procédure de mise en route (à compléter après les essais)
 

@@ -1,7 +1,7 @@
 # 01 — Contexte et besoins
 
-> **Statut** : brouillon v0.5 — à valider par l'équipe
-> **Dernière mise à jour** : 2026-11-17
+> **Statut** : brouillon v0.6 — à valider par l'équipe
+> **Dernière mise à jour** : 2026-11-18
 > **Rédaction** : Clara SION SAUNIER
 > **Légende** : `[FAIT]` vérifié et sourcé · `[HYPOTHÈSE]` raisonnement non vérifié · `[À VÉRIFIER]` plausible mais non confirmé
 > **Citations** : `[@ID, localisation]`, clés définies dans `docs/sources.bib`
@@ -181,9 +181,10 @@ une démonstration orale.
   l'an dernier, et certains réseaux isolent les appareils entre eux [@S03, §9.2].
 
 - [FAIT] **Échéance** : livrables à envoyer par mail aux deux tuteurs avant la dernière séance
-  [@S28]. Selon l'équipe, c'est pour le **15 décembre 2026** ; l'avant-dernière séance a lieu le
-  **lundi 14 décembre de 10 h à 13 h** et l'objectif interne est d'envoyer à 13 h au plus tard à
-  l'issue de cette séance. `[À VÉRIFIER : date et heure de la soutenance]`
+  [@S28]. Selon l'équipe, la dernière séance a lieu le **mercredi 16 décembre 2026**, jour de la
+  soutenance. Pour garder de la marge, l'équipe envoie les livrables à la fin de l'avant-dernière
+  séance, le **lundi 14 décembre** (séance de 10 h à 13 h), à 13 h au plus tard.
+  `[À VÉRIFIER : heure, ordre de passage et format de la soutenance]`
 - [FAIT — consigne de l'équipe] Les quatre membres sont en entreprise : la semaine du 30 novembre
   au 6 décembre doit rester la plus légère possible.
 - [FAIT — décisions de l'équipe, 2026-11-17] On repart du code existant ; l'équipe choisit son API ;
@@ -198,10 +199,10 @@ une démonstration orale.
   shield DFR0012, Nano RP2040 Connect, Compute Module) [@S03, §2.4, §5, §6]. Seule la carte
   (Nano RP2040 Connect) est déclarée par l'équipe ; sa présence sur chaque robot reste à
   confirmer. `[À VÉRIFIER]`
-- Accès aux robots : dates et créneaux disponibles avant le 14/12. `[À VÉRIFIER]`
-- Date, heure et ordre de passage de la soutenance. `[À VÉRIFIER]`
+- Chez qui se trouvent les robots (ils sont à domicile) et comment les réunir pour les essais à plusieurs robots. `[À VÉRIFIER]`
+- Heure, ordre de passage et format de la soutenance. `[À VÉRIFIER]`
 - Modalité d'envoi des livrables (taille de la vidéo et de l'archive par mail). `[À VÉRIFIER]`
-- Auteurs de chaque partie du code S06 à S08. `[À VÉRIFIER]`
+- Répartition fichier par fichier du code S06 à S08 entre ses deux auteurs (non bloquant).
 
 ### 10.3 Éléments levés le 2026-11-17
 - API de communication : **choisie par l'équipe**, non imposée.
@@ -212,4 +213,12 @@ une démonstration orale.
 - Réutilisation du code de l'an dernier : **autorisée** (reprise tracée et testée).
 - Architecture : **centralisée**, confirmée par les tuteurs (ADR-002).
 - Niveau de synchronisation : **à l'œil, avec recalage sur le mouvement suivant** (ADR-002, ADR-004).
+
+### 10.4 Éléments levés le 2026-11-18
+Déclarés par l'équipe, à la suite d'un échange direct avec les tuteurs.
+- **Soutenance** : le **mercredi 16 décembre 2026**, jour de la dernière séance.
+- **Envoi des livrables** : avant la dernière séance [@S28] ; l'équipe l'avance à la fin de l'avant-dernière séance, le **lundi 14 décembre**, pour garder de la marge.
+- **Accès aux robots** : les robots sont **à domicile**.
+- **Formations spécifiques** : ce sont les **skill books** (S04, S05 et le *Skillbook Arduino – Prise en main*).
+- **Auteurs du code fourni (S06 à S08)** : Célian Crépin et Maxence Dupont.
 - Nombre de robots pour la démonstration : **3 ou 4** (dates d'accès encore à connaître).

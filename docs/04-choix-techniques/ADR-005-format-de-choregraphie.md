@@ -90,7 +90,7 @@ Règles :
 - le nombre total de commandes envoyées à un même robot ne dépasse pas la limite de 60 si l'hypothèse
   sur S06 se confirme [@S06, trajectory.h l. 45-47, 81-83] ;
 - **mode à blanc** : afficher la suite d'étapes sans envoyer aucun ordre, pour tester une chorégraphie
-  sans robot (utile, l'accès aux robots étant limité).
+  sans robot (utile pour répéter sans les robots).
 
 ## Justification
 
